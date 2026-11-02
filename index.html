@@ -124,25 +124,25 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .lang:hover { color: var(--color-accent); }
 .lang:active { transform: translateY(1px); }
 
-.hero { position: relative; isolation: isolate; display: flex; align-items: center; min-height: max(calc(100dvh - var(--nav-h)), 640px); background: var(--color-stage); overflow: clip; }
-.hero__ghost { position: absolute; z-index: 0; right: -2%; top: 50%; width: min(56%, 54rem); transform: translateY(-50%); overflow: visible; }
+.hero { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: stretch; background: var(--color-stage); overflow: clip; }
+.hero__ghost { position: absolute; z-index: 0; left: 50%; bottom: 5%; width: min(74%, 62rem); transform: translateX(-50%); overflow: visible; }
 .hero__ghost text { fill: var(--color-ghost); font: 900 300px var(--font-ghost); }
-.hero__in { position: relative; z-index: 3; padding-block: var(--space-xl); }
-.hero__copy { width: 46%; min-width: 0; }
-.hero h1 { max-width: none; font-size: clamp(2.5rem, 4.5vw, 4.5rem); letter-spacing: -0.04em; line-height: 1.04; }
-html[data-lang="bn"] .hero h1 { max-width: none; font-size: clamp(2.5rem, 4.1vw, 4.1rem); line-height: 1.18; }
+.hero__in { position: relative; z-index: 3; padding-block: var(--space-2xl) var(--space-sm); text-align: center; }
+.hero__copy { display: grid; justify-items: center; min-width: 0; }
+.hero h1 { max-width: 16em; font-size: clamp(2.5rem, 5vw, 4.75rem); letter-spacing: -0.04em; line-height: 1.04; }
+html[data-lang="bn"] .hero h1 { max-width: 18em; font-size: clamp(2.5rem, 4.6vw, 4.5rem); line-height: 1.18; }
 .hero .lead { margin-top: var(--space-md); max-width: 34rem; color: var(--color-ink-2); }
-.actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-lg); }
+.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm); margin-top: var(--space-lg); }
 .hero .btn--line { background: var(--color-ghost); border-color: var(--color-ghost); }
-.hero__stage { position: absolute; z-index: 2; top: 0; bottom: 0; right: 0; width: 54%; pointer-events: none; }
+.hero__stage { position: relative; z-index: 2; width: 100%; height: clamp(32rem, 76vh, 50rem); pointer-events: none; }
 .hero__gl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .ops { position: absolute; z-index: 2; display: grid; gap: var(--space-3xs); width: 12.5rem; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-field); background: var(--color-paper); }
 .ops strong { font-size: var(--text-md); font-weight: 700; line-height: 1.25; }
 .ops__state { justify-self: start; margin-top: var(--space-2xs); padding: var(--space-3xs) var(--space-xs); border-radius: var(--radius-pill); background: var(--color-stage); font-size: var(--text-sm); font-weight: 500; }
 .ops__state[data-t="ops.done"] { background: var(--color-ink); color: var(--color-paper); }
-.ops--1 { left: 0; top: 14%; }
-.ops--2 { right: 4%; top: 34%; }
-.ops--3 { left: 2%; bottom: 13%; }
+.ops--1 { left: 9%; top: 16%; }
+.ops--2 { right: 9%; top: 36%; }
+.ops--3 { left: 13%; bottom: 12%; }
 .hero__pause { position: absolute; z-index: 3; right: max(var(--gutter), env(safe-area-inset-right, 0px)); bottom: var(--space-lg); min-height: 44px; }
 .js .hero h1, .js .hero .lead, .js .hero__ghost { animation: settle 900ms var(--ease-out) both; }
 .js .hero__stage { opacity: 0; transition: opacity 900ms var(--ease-out); }
@@ -271,11 +271,9 @@ html[data-lang="bn"] .foot__mark { letter-spacing: 0; line-height: 1.25; }
   .stages { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 60rem) {
-  .hero { flex-direction: column; align-items: stretch; min-height: 0; }
-  .hero__in { padding-block: var(--space-xl) 0; }
-  .hero__copy { width: 100%; }
-  .hero__stage { position: relative; inset: auto; width: 100%; height: clamp(26rem, 100vw, 38rem); }
-  .hero__ghost { top: auto; bottom: 8%; right: 0; width: 100%; transform: none; }
+  .hero__in { padding-block: var(--space-xl) var(--space-xs); }
+  .hero__stage { height: clamp(26rem, 100vw, 38rem); }
+  .hero__ghost { bottom: 8%; width: 100%; }
   .ops { width: 10.5rem; padding: var(--space-xs) var(--space-sm); }
   .ops--1 { left: var(--space-sm); top: 5%; }
   .ops--2 { right: var(--space-sm); top: 26%; }
