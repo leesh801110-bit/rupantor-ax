@@ -7,7 +7,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;700&family=Atkinson+Hyperlegible+Mono:wght@400;500&family=Anek+Bangla:wght@400;500;700&family=Orbitron:wght@900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;700&family=Anek+Bangla:wght@400;500;700&family=Orbitron:wght@900&display=swap">
 <style>
 /* Hallmark · shape: Feature Stack · genre: modern-minimal · theme: Console (deal 2/3, seed transformation-agency-bangladesh-businesses-4b08·2a689085·2026-11-01·r0) · job: hire · draw: 95d49d
  * hero: Ledge · nav: slab · footer: mast · imagery: the product · signature: paperwork passing through a gate into ordered AI work, then one real task changing on the bench · console: graphite
@@ -72,7 +72,6 @@ button, input, select, textarea { font: inherit; }
 :root {
   --font-display: "Host Grotesk", "Anek Bangla", ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-display);
-  --font-outlier: "Atkinson Hyperlegible Mono", "Anek Bangla", ui-monospace, monospace;
   --font-ghost: "Orbitron", var(--font-display);
   --gl-black: #08090b; --gl-visor: #050507; --gl-chrome: #e6e9ec; --gl-eye: #f4f6f8; --gl-weave-a: #0b0c0e; --gl-weave-b: #24262b;
   color-scheme: light;
@@ -80,10 +79,12 @@ button, input, select, textarea { font: inherit; }
   --color-stage: oklch(90.5% 0.002 250); --color-ghost: oklch(98.6% 0.001 250);
   --color-ink: oklch(16% 0.006 250); --color-ink-2: oklch(34% 0.008 250); --color-muted: oklch(46% 0.01 250);
   --color-rule: oklch(88% 0.004 250); --color-rule-2: oklch(72% 0.006 250);
-  --color-accent: oklch(52% 0.13 70); --color-accent-ink: oklch(98.4% 0.002 250); --color-accent-soft: oklch(93% 0.04 80); --color-focus: oklch(50% 0.14 250);
-  --color-cool: oklch(48% 0.14 250); --color-cool-soft: oklch(92% 0.03 245);
+  --color-accent: oklch(16% 0.006 250); --color-accent-ink: oklch(98.4% 0.002 250); --color-accent-soft: oklch(90.5% 0.002 250); --color-focus: oklch(50% 0.14 250);
   --color-error: oklch(50% 0.17 27);
-  --radius-pill: 999px; --display-weight: 700;
+  --radius-pill: 999px; --display-weight: 700; --radius-card: 28px; --radius-pill-card: 28px; --radius-field: 14px; --radius-bubble: 22px;
+  --color-night: oklch(14.5% 0.004 250); --color-night-muted: oklch(75% 0.006 250); --color-night-rule: oklch(30% 0.006 250); --color-rule-3: oklch(82% 0.004 250);
+  --section-y: clamp(4.5rem, 9vw, 8.5rem); --space-card: clamp(1.5rem, 3.4vw, 3rem);
+  --text-h2: clamp(2.25rem, 4.6vw, 4.25rem); --text-numeral: clamp(4rem, 7vw, 6.5rem);
   --nav-h: 64px;
   --text-mark: clamp(4.5rem, 19vw, 18rem);
 }
@@ -110,13 +111,13 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .hero .btn--line { background: var(--color-ghost); border-color: var(--color-ghost); }
 .btn--small { min-height: 44px; padding: 0 var(--space-md); font-size: var(--text-sm); }
 
-.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: var(--z-sticky-nav); background: var(--color-paper); border-bottom: 1px solid var(--color-rule); }
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: var(--z-sticky-nav); background: var(--color-paper); }
 .nav__in { display: flex; align-items: stretch; min-height: var(--nav-h); max-width: var(--container); margin-inline: auto; padding-left: max(var(--gutter), env(safe-area-inset-left, 0px)); padding-right: max(var(--gutter), env(safe-area-inset-right, 0px)); }
 .wordmark { display: flex; align-items: center; padding-right: var(--space-lg); font: 700 var(--text-title)/1 var(--font-display); text-decoration: none; }
 .wordmark:focus-visible, .nav__links a:focus-visible, .lang:focus-visible, .foot__links a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
 .nav__links { display: flex; align-items: stretch; justify-content: center; flex: 1; min-width: 0; }
 .nav__links a { display: flex; align-items: center; padding-inline: var(--space-md); color: var(--color-ink-2); font-size: var(--text-sm); text-decoration: none; white-space: nowrap; transition: color var(--dur-short) var(--ease-out); }
-.nav__links a:hover { color: var(--color-accent); }
+.nav__links a:hover { color: var(--color-ink); }
 .nav__end { display: flex; align-items: center; gap: var(--space-sm); padding-left: var(--space-md); }
 .nav__talk { min-height: 44px; }
 .lang { min-height: 44px; padding: 0 var(--space-sm); border: 0; background: transparent; color: var(--color-ink); font: 500 var(--text-sm)/1 var(--font-body); text-decoration: underline; text-decoration-color: var(--color-rule-2); text-underline-offset: 0.3em; cursor: pointer; white-space: nowrap; transition: color var(--dur-short) var(--ease-out); }
@@ -140,142 +141,160 @@ html[data-lang="bn"] .hero h1 { max-width: 16em; font-size: clamp(2.5rem, 4.6vw,
 .js[data-robot] .hero__stage { opacity: 1; }
 @keyframes settle { from { opacity: 0; filter: blur(14px); } to { opacity: 1; filter: blur(0); } }
 
-section:not(.hero):not(.contact) { padding-block: var(--section-gap-s); }
-.bench { padding-top: var(--section-gap); background: var(--color-paper); }
-.head { margin-bottom: var(--space-2xl); }
-.head.split { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--gap-columns); align-items: end; }
+/* every section below the hero: bold centred head, then big soft cards in stage grey or night black */
+main > section:not(.hero) { padding-block: var(--section-y); background: var(--color-paper); }
+.head { display: grid; justify-items: center; gap: var(--space-md); margin-bottom: var(--space-2xl); text-align: center; }
+h2 { max-width: 20ch; font-size: var(--text-h2); letter-spacing: -0.04em; line-height: 1.04; }
+html[data-lang="bn"] h2 { max-width: 24ch; }
+h3 { letter-spacing: -0.02em; }
+.head .lead { max-width: 46ch; color: var(--color-muted); }
+.card { border-radius: var(--radius-card); background: var(--color-stage); padding: var(--space-card); min-width: 0; }
+.card--night { background: var(--color-night); color: var(--color-paper); }
+.tag { display: block; color: var(--color-muted); font-size: var(--text-sm); font-weight: 500; }
+.card--night .tag { color: var(--color-night-muted); }
+.js [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out); transition-delay: calc(var(--i, 0) * 60ms); }
+.js [data-reveal].is-in { opacity: 1; transform: none; }
 
-.tabs { display: flex; gap: var(--space-2xs); margin-bottom: var(--space-md); overflow-x: auto; scrollbar-width: none; }
-.tabs button { flex: 0 0 auto; min-height: 44px; padding: 0 var(--space-md); border: 1px solid var(--color-rule); border-radius: 4px; background: transparent; color: var(--color-ink-2); font: 500 var(--text-md)/1 var(--font-body); cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
-.tabs button:hover { background: var(--color-paper-2); color: var(--color-ink); }
+.tabs { display: flex; justify-content: center; gap: var(--space-xs); margin-bottom: var(--space-lg); overflow-x: auto; scrollbar-width: none; }
+.tabs button { flex: 0 0 auto; min-height: 44px; padding: 0 var(--space-lg); border: 0; border-radius: var(--radius-pill); background: var(--color-stage); color: var(--color-ink); font: 500 var(--text-md)/1 var(--font-body); cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
+.tabs button:hover { background: var(--color-rule); }
 .tabs button:active { transform: translateY(1px); }
-.tabs button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
-.tabs button[aria-selected="true"] { background: var(--color-paper-2); border-color: var(--color-rule-2); color: var(--color-ink); }
+.tabs button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.tabs button[aria-selected="true"] { background: var(--color-ink); color: var(--color-paper); }
 
-.panels { display: grid; gap: var(--rule-hair); background: var(--color-rule); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); overflow: hidden; }
-.panels > * { background: var(--color-paper-2); min-width: 0; }
-.bench__panel { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); }
-.bench__in { padding: var(--space-xl); background: var(--color-paper-3); }
-.bench__out { position: relative; padding: var(--space-xl); }
-.bench__sign { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); padding: var(--space-md) var(--space-xl); min-height: 76px; }
-.bench__sign strong { margin-right: var(--space-xs); color: var(--color-accent); font-weight: 500; }
-.bench__label { margin-bottom: var(--space-lg); color: var(--color-muted); font-size: var(--text-sm); font-weight: 500; }
-.bench__raw { font-size: var(--text-2xl); line-height: 1.45; color: var(--color-ink-2); }
-html[data-lang="bn"] .bench__raw { line-height: 1.7; }
-.bench__raw mark { background: transparent; color: inherit; border-radius: 3px; transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
-.bench__raw mark.is-on { background: var(--color-cool-soft); color: var(--color-cool); -webkit-box-decoration-break: clone; box-decoration-break: clone; padding-inline: var(--space-2xs); }
-.fields { display: grid; margin: 0; }
-.fields > div { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--space-md); align-items: baseline; padding-block: var(--space-md); border-top: 1px solid var(--color-rule); transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out); }
+.bench__panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); }
+.bench__in { display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-xl); }
+.bench__out { position: relative; overflow: hidden; }
+.bench__raw { font-size: var(--text-2xl); font-weight: 500; letter-spacing: -0.02em; line-height: 1.4; }
+html[data-lang="bn"] .bench__raw { letter-spacing: 0; line-height: 1.65; }
+.bench__raw mark { background: transparent; color: inherit; border-radius: 6px; transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
+.bench__raw mark.is-on { background: var(--color-ink); color: var(--color-paper); -webkit-box-decoration-break: clone; box-decoration-break: clone; padding-inline: var(--space-2xs); }
+.bench__sign { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); padding-block: var(--space-md); padding-inline: var(--space-card); border-radius: var(--radius-pill-card); background: var(--color-stage); }
+.bench__sign strong { margin-right: var(--space-xs); font-weight: 700; }
+.bench__sign .btn { background: var(--color-paper); border-color: var(--color-paper); }
+.fields { display: grid; margin: var(--space-lg) 0 0; }
+.fields > div { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--space-md); align-items: baseline; padding-block: var(--space-md); border-top: 1px solid var(--color-night-rule); transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out); }
 .fields > div.is-pre { opacity: 0; transform: translateY(8px); }
-.fields dt { color: var(--color-muted); font-size: var(--text-sm); font-weight: 500; }
-.fields dd { margin: 0; color: var(--color-cool); font-family: var(--font-outlier); font-size: var(--text-lg); font-variant-numeric: tabular-nums slashed-zero; overflow-wrap: break-word; min-width: 0; }
-.bench__bar { position: absolute; inset: 0 0 auto; height: 2px; overflow: hidden; }
-.bench__bar span { display: block; height: 100%; background: var(--color-cool); transform: scaleX(0); transform-origin: left; }
+.fields dt { color: var(--color-night-muted); font-size: var(--text-sm); font-weight: 500; }
+.fields dd { margin: 0; font-size: var(--text-lg); font-weight: 500; overflow-wrap: break-word; min-width: 0; }
+.bench__bar { position: absolute; inset: 0 0 auto; height: 3px; overflow: hidden; }
+.bench__bar span { display: block; height: 100%; background: var(--color-paper); transform: scaleX(0); transform-origin: left; }
 .bench__bar span.is-run { transform: scaleX(1); transition: transform 1800ms linear; }
-.bench__bar span.is-done { transform: scaleX(1); }
+.bench__bar span.is-done { transform: scaleX(0); }
 
-.takes { background: var(--color-paper-3); }
-.dept { width: 100%; border-collapse: collapse; }
-.dept thead th { padding: 0 var(--space-md) var(--space-md) 0; color: var(--color-muted); font-size: var(--text-sm); font-weight: 500; text-align: left; white-space: nowrap; }
-.dept tbody th { width: 22%; padding: var(--space-lg) var(--space-md) var(--space-lg) 0; font: 500 var(--text-title)/1.25 var(--font-display); text-align: left; vertical-align: baseline; }
-.dept td { padding: var(--space-lg) var(--space-lg) var(--space-lg) 0; font-size: var(--text-lead); line-height: 1.4; vertical-align: baseline; }
-.dept tbody tr { border-top: 1px solid var(--color-rule); }
-.dept td:last-child { width: 24%; padding-right: 0; }
-.is-ai { color: var(--color-cool); }
-.is-you { color: var(--color-accent); }
+.takes__in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-md); align-items: stretch; }
+.takes__pic { position: relative; overflow: hidden; padding: 0; min-height: 26rem; }
+.takes__pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.dept { padding-block: var(--space-sm); }
+.dept__row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-2xs) var(--space-md); align-items: baseline; padding-block: var(--space-md); border-top: 1px solid var(--color-rule-3); }
+.dept__row:first-child { border-top: 0; }
+.dept__row h3 { font-size: var(--text-title); font-weight: 700; }
+.dept__row p { grid-column: 1; color: var(--color-ink-2); }
+.dept__keep { grid-row: 1 / span 2; grid-column: 2; align-self: center; max-width: 11rem; padding: var(--space-2xs) var(--space-sm); border-radius: var(--radius-pill); background: var(--color-paper); font-size: var(--text-sm); font-weight: 500; text-align: center; }
 
-.how { padding-top: var(--section-gap); }
-.stages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap-columns); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--color-rule-2); counter-reset: stage; }
-.stages li { position: relative; padding-top: var(--space-xl); counter-increment: stage; }
-.stages li::before { content: counter(stage); display: block; margin-bottom: var(--space-lg); color: var(--color-ink); font: 400 var(--text-3xl)/1 var(--font-outlier); }
+.stages { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-md); margin: 0; padding: 0; list-style: none; counter-reset: stage; }
+.stages li { position: relative; overflow: hidden; counter-increment: stage; }
+.stages li::before { content: counter(stage); display: block; margin-bottom: var(--space-lg); color: var(--color-ghost); font: 900 var(--text-numeral)/0.9 var(--font-ghost); }
 html[data-lang="bn"] .stages li::before { content: counter(stage, bengali); }
+.stages h3 { font-size: var(--text-title); font-weight: 700; }
 .stages dl { display: grid; gap: var(--space-2xs); margin: var(--space-md) 0 0; }
-.stages dt { margin-top: var(--space-sm); font-size: var(--text-sm); font-weight: 500; }
-.stages dd { margin: 0; color: var(--color-ink-2); }
+.stages dt { margin-top: var(--space-sm); color: var(--color-muted); font-size: var(--text-sm); font-weight: 500; }
+.stages dd { margin: 0; }
+.stages dd:last-child { font-weight: 500; }
 
-.fit { background: var(--color-paper-2); }
-.fit__grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); grid-template-rows: repeat(3, minmax(0, 1fr)); }
-.fit__grid > div { padding: var(--space-xl); background: var(--color-paper); }
-.fit__grid p { margin-top: var(--space-xs); color: var(--color-muted); }
-.fit__lead { grid-row: 1 / span 3; background: var(--color-paper-2) !important; }
-.tongue { display: grid; gap: var(--space-2xs); margin: var(--space-xl) 0 0; }
-.tongue dt { margin-top: var(--space-md); color: var(--color-muted); font-size: var(--text-sm); font-weight: 500; }
-.tongue__v { margin: 0; font-family: var(--font-outlier); font-size: var(--text-3xl); line-height: 1.25; letter-spacing: -0.02em; overflow-wrap: break-word; }
-.tongue__v--you { color: var(--color-accent); }
-.tongue__v--ai { color: var(--color-cool); }
-html[data-lang="bn"] .tongue__v { letter-spacing: 0; }
+.trust__card { position: relative; display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: var(--space-xl); overflow: hidden; padding-right: 0; }
+.trust__card h2 { margin-bottom: var(--space-xl); max-width: 16ch; }
+.trust__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg) var(--space-xl); margin: 0; }
+.trust__list dt { font-size: var(--text-title); font-weight: 700; line-height: 1.25; }
+.trust__list dd { margin: var(--space-2xs) 0 0; color: var(--color-night-muted); }
+.trust__pic { align-self: end; justify-self: end; width: 100%; max-width: 26rem; margin-bottom: calc(-1 * var(--space-card)); }
 
-.qa { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gap-columns); margin: 0; }
-.qa > div { padding-block: var(--space-lg) var(--space-xl); border-top: 1px solid var(--color-rule); }
-.qa--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.trust { background: var(--color-ink); color: var(--color-paper); }
-.trust .qa > div { border-top-color: var(--color-ink-2); }
-.trust .qa dd { color: var(--color-rule-2); }
-.qa dt { font: 500 var(--text-title)/1.3 var(--font-display); }
-.qa dd { margin: var(--space-xs) 0 0; color: var(--color-muted); }
+.fit__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-md); }
+.fit__lead { grid-column: span 7; grid-row: span 2; }
+.fit__hand { grid-column: span 5; grid-row: span 2; position: relative; overflow: hidden; min-height: 24rem; }
+.fit__hand img { position: absolute; right: 2%; bottom: -14%; width: 72%; -webkit-mask-image: linear-gradient(to bottom, transparent 8%, black 38%); mask-image: linear-gradient(to bottom, transparent 8%, black 38%); }
+.fit__small { grid-column: span 6; }
+.fit__grid h3 { font-size: var(--text-title); font-weight: 700; }
+.fit__grid p { margin-top: var(--space-xs); color: var(--color-ink-2); }
+.fit__hand p { color: var(--color-night-muted); max-width: 18ch; }
+.tongue { display: grid; gap: var(--space-sm); margin: var(--space-xl) 0 0; }
+.tongue > div { width: fit-content; max-width: 100%; padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-bubble); background: var(--color-paper); }
+.tongue > div:last-child { justify-self: end; background: var(--color-ink); color: var(--color-paper); }
+.tongue > div:last-child dt { color: var(--color-night-muted); }
+.tongue dt { color: var(--color-muted); font-size: var(--text-sm); font-weight: 500; }
+.tongue dd { margin: 0; font-size: var(--text-2xl); font-weight: 700; letter-spacing: -0.02em; overflow-wrap: break-word; }
+html[data-lang="bn"] .tongue dd { letter-spacing: 0; }
 
-.contact { padding-block: var(--section-gap); background: var(--color-paper-3); border-top: 1px solid var(--color-rule); }
-.contact__in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-3xl); align-items: start; }
-.contact .lead { margin-top: var(--space-md); }
+.qa { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); margin: 0; }
+.qa dt { font-size: var(--text-title); font-weight: 700; line-height: 1.3; }
+.qa dd { margin: var(--space-xs) 0 0; color: var(--color-ink-2); }
+
+main > section.contact { position: relative; overflow: clip; background: var(--color-stage); }
+.contact .hero__ghost { top: 20%; }
+.contact__in { position: relative; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-xl); align-items: center; }
+.contact h2 { max-width: 13ch; }
+.contact .lead { margin-top: var(--space-md); color: var(--color-ink-2); }
 .reach { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-xs) var(--space-lg); margin: var(--space-xl) 0 0; }
 .reach dt { color: var(--color-muted); font-size: var(--text-sm); font-weight: 500; }
 .reach dd { margin: 0; }
-.fill { padding: 0 var(--space-2xs); border: 1px dashed var(--color-muted); border-radius: 3px; color: var(--color-muted); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-.form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); }
-.field { display: grid; gap: var(--space-2xs); min-width: 0; }
+.fill { padding: 0 var(--space-xs); border: 1px dashed var(--color-muted); border-radius: var(--radius-pill); color: var(--color-muted); }
+.form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); background: var(--color-paper); }
+.field { display: grid; gap: var(--space-2xs); min-width: 0; align-content: start; }
 .field--wide { grid-column: 1 / -1; }
-.field label { color: var(--color-ink-2); font-size: var(--text-sm); font-weight: 500; }
-.field input, .field select, .field textarea { width: 100%; min-height: 48px; padding: var(--space-sm) var(--space-md); border: 1px solid var(--color-muted); border-radius: var(--radius-card); background: var(--color-paper); color: var(--color-ink); font-size: var(--text-md); outline: 2px solid transparent; outline-offset: -3px; }
+.field label { font-size: var(--text-sm); font-weight: 500; }
+.field input, .field select, .field textarea { width: 100%; min-height: 52px; padding: var(--space-sm) var(--space-md); border: 1px solid var(--color-muted); border-radius: var(--radius-field); background: var(--color-paper); color: var(--color-ink); font-size: var(--text-md); outline: 2px solid transparent; outline-offset: -3px; }
 .field textarea { resize: vertical; }
 .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline-color: var(--color-focus); }
 .field [aria-invalid] { border-color: var(--color-error); }
 .form__end { display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; }
 .form__help { min-height: 1lh; flex: 1 1 16rem; color: var(--color-muted); font-size: var(--text-sm); }
 
-.foot { padding-block: var(--space-2xl) var(--space-xl); background: var(--color-paper-3); border-top: 1px solid var(--color-rule); }
-.foot__mark { font: 700 var(--text-mark)/1 var(--font-display); letter-spacing: -0.04em; color: var(--color-ink); white-space: nowrap; }
+.foot { padding-block: var(--space-2xl) var(--space-xl); background: var(--color-night); color: var(--color-paper); overflow: clip; }
+.foot__mark { font: 700 var(--text-mark)/1 var(--font-display); letter-spacing: -0.04em; white-space: nowrap; }
 html[data-lang="en"] .foot__mark { font-size: clamp(4rem, 16.5vw, 15.5rem); }
-.foot__credit { margin-top: var(--space-md); color: var(--color-muted); font-size: var(--text-sm); }
-.foot__row { display: flex; justify-content: space-between; gap: var(--space-lg); flex-wrap: wrap; margin-top: var(--space-lg); color: var(--color-muted); font-size: var(--text-sm); }
+html[data-lang="bn"] .foot__mark { letter-spacing: 0; line-height: 1.25; }
+.foot__row { display: flex; justify-content: space-between; gap: var(--space-lg); flex-wrap: wrap; margin-top: var(--space-lg); color: var(--color-night-muted); font-size: var(--text-sm); }
+.foot__credit { margin-top: var(--space-md); color: var(--color-night-muted); font-size: var(--text-sm); }
 .foot__links { display: flex; gap: var(--space-lg); flex-wrap: wrap; }
-.foot__links a { color: var(--color-ink-2); white-space: nowrap; text-decoration-color: var(--color-rule-2); transition: color var(--dur-short) var(--ease-out); }
-.foot__links a:hover { color: var(--color-accent); }
+.foot__links a { color: var(--color-paper); white-space: nowrap; text-decoration-color: var(--color-night-rule); transition: opacity var(--dur-short) var(--ease-out); }
+.foot__links a:hover { opacity: 0.7; }
 
+@media (max-width: 75rem) {
+  .stages { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 60rem) {
   .hero .lead { columns: auto; width: auto; max-width: 46ch; }
   .hero__back { padding-top: var(--space-lg); }
   [data-robot="ready"] .hero__stage { position: relative; inset: auto; flex: 1 1 0; min-height: 0; left: auto; top: auto; width: 100%; height: auto; margin-top: var(--space-xs); }
   .actions { top: auto; bottom: calc(var(--space-3xl) - var(--space-xs)); }
-  .hero__ghost { top: 72%; }
+  .hero .hero__ghost { top: 72%; }
   .nav__links { display: none; }
   .nav__in { justify-content: space-between; }
-  .wordmark { border-right: 0; }
-  .head.split, .bench__panel, .fit__grid, .qa, .contact__in { grid-template-columns: minmax(0, 1fr); }
-  .fit__grid { grid-template-rows: none; }
-  .fit__lead { grid-row: auto; }
-  .contact__in { gap: var(--space-xl); }
-  .stages { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .bench__raw { font-size: var(--text-title); }
-  .bench__in, .bench__out, .fit__grid > div { padding: var(--space-lg); }
-  .bench__sign { padding: var(--space-md) var(--space-lg); }
-  .dept thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-  .dept, .dept tbody, .dept tr, .dept tbody th, .dept td { display: block; width: auto !important; }
-  .dept tbody tr { padding-block: var(--space-md); }
-  .dept tbody th, .dept td { padding: 0 0 var(--space-2xs); }
-  .dept td { font-size: var(--text-md); }
+  .tabs { justify-content: flex-start; }
+  .bench__panel, .takes__in, .qa, .contact__in, .trust__card { grid-template-columns: minmax(0, 1fr); }
+  .takes__pic { min-height: 22rem; }
+  .trust__card { padding-right: var(--space-card); }
+  .trust__pic { justify-self: center; max-width: 20rem; }
+  .fit__lead, .fit__hand, .fit__small { grid-column: 1 / -1; grid-row: auto; }
+  .contact .hero__ghost { top: var(--space-2xl); }
 }
 @media (max-width: 40rem) {
   .hero { height: max(calc(100svh - var(--nav-h)), 620px); }
   .hero__pause { left: var(--space-md); bottom: var(--space-md); }
-  .stages { grid-template-columns: minmax(0, 1fr); }
-  .form { grid-template-columns: minmax(0, 1fr); }
-  .bench__sign { flex-direction: column; align-items: flex-start; }
-  .tongue__v { font-size: var(--text-2xl); }
+  .stages, .trust__list, .form { grid-template-columns: minmax(0, 1fr); }
+  .stages li::before { margin-bottom: var(--space-sm); }
+  .bench__sign { flex-direction: column; align-items: flex-start; border-radius: var(--radius-card); }
+  .dept__row { grid-template-columns: minmax(0, 1fr); }
+  .dept__keep { grid-row: auto; grid-column: 1; justify-self: start; max-width: none; margin-top: var(--space-2xs); }
+  .fields > div { grid-template-columns: minmax(0, 1fr); gap: var(--space-3xs); }
   .fields dd { font-size: var(--text-md); }
+  .bench__raw { font-size: var(--text-title); }
+  .tongue dd { font-size: var(--text-xl); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .fields > div.is-pre { opacity: 1; transform: none; }
+  .js [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
 </style>
 <a class="skip" href="#main" data-t="skip">মূল অংশে যান</a>
@@ -292,7 +311,7 @@ html[data-lang="en"] .foot__mark { font-size: clamp(4rem, 16.5vw, 15.5rem); }
     </nav>
     <div class="nav__end">
       <button class="lang" type="button" id="lang" lang="en">English</button>
-      <a class="btn btn--line nav__talk" href="#contact" data-t="nav.talk">কথা বলুন</a>
+      <a class="btn btn--primary nav__talk" href="#contact" data-t="nav.talk">কথা বলুন</a>
     </div>
   </div>
 </header>
@@ -314,18 +333,18 @@ html[data-lang="en"] .foot__mark { font-size: clamp(4rem, 16.5vw, 15.5rem); }
 
   <section class="bench" id="bench" aria-labelledby="bench-h">
     <div class="container">
-      <div class="head split">
+      <div class="head">
         <h2 id="bench-h" data-t="bench.h">একটি কাজ কীভাবে বদলে যায়, দেখুন</h2>
         <p class="lead" data-t="bench.p">বাংলাদেশের অফিসের চেনা কাগজপত্র। এখানকার সব নাম ও সংখ্যা নমুনা।</p>
       </div>
       <div class="tabs" role="tablist" aria-label="Industry" id="tabs"><button type="button" role="tab" id="tab-rmg" aria-controls="panel" aria-selected="true">গার্মেন্টস</button><button type="button" role="tab" id="tab-bank" aria-controls="panel" aria-selected="false">ব্যাংকিং</button><button type="button" role="tab" id="tab-pharma" aria-controls="panel" aria-selected="false">ফার্মা</button><button type="button" role="tab" id="tab-trade" aria-controls="panel" aria-selected="false">আমদানি-রপ্তানি</button><button type="button" role="tab" id="tab-shop" aria-controls="panel" aria-selected="false">অনলাইন শপ</button><button type="button" role="tab" id="tab-hr" aria-controls="panel" aria-selected="false">হেড অফিস</button></div>
-      <div class="panels bench__panel" id="panel" role="tabpanel">
-        <div class="bench__in">
-          <p class="bench__label"><span data-t="bench.in">যা আসে</span>: <span id="b-source">বায়ারের ইমেইল</span></p>
+      <div class="bench__panel" id="panel" role="tabpanel">
+        <div class="card bench__in">
+          <p class="tag"><span data-t="bench.in">যা আসে</span>: <span id="b-source">বায়ারের ইমেইল</span></p>
           <p class="bench__raw" id="b-raw">Hi team, please revise PO <mark>4471</mark>. Qty from 12,000 to <mark>13,500 pcs</mark>. Ex factory moved up to <mark>28 Feb</mark>. Add size <mark>XXL</mark>. Need confirmation today.</p>
         </div>
-        <div class="bench__out">
-          <p class="bench__label" data-t="bench.out">যা পাবেন</p>
+        <div class="card card--night bench__out">
+          <p class="tag" data-t="bench.out">যা পাবেন</p>
           <dl class="fields" id="b-fields"><div><dt>অর্ডার</dt><dd>PO 4471</dd></div><div><dt>পরিমাণ</dt><dd>১৩,৫০০ পিস, আগে ১২,০০০</dd></div><div><dt>এক্স ফ্যাক্টরি</dt><dd>২৮ ফেব্রুয়ারি</dd></div><div><dt>নতুন সাইজ</dt><dd>XXL</dd></div></dl>
           <div class="bench__bar" aria-hidden="true"><span id="b-bar"></span></div>
         </div>
@@ -339,80 +358,86 @@ html[data-lang="en"] .foot__mark { font-size: clamp(4rem, 16.5vw, 15.5rem); }
 
   <section class="takes" id="takes" aria-labelledby="takes-h">
     <div class="container">
-      <h2 id="takes-h" class="head" data-t="takes.h">এআই কী নেবে, আপনার হাতে কী থাকবে</h2>
-      <table class="dept">
-        <thead><tr><th scope="col" data-t="takes.c1">বিভাগ</th><th scope="col" data-t="takes.c2">এআই করবে</th><th scope="col" data-t="takes.c3">আপনার লোকদের হাতে</th></tr></thead>
-        <tbody>
-          <tr><th scope="row" data-t="d1">হিসাব</th><td class="is-ai" data-t="d1a">ইনভয়েস মেলানো, ব্যাংক ও বিকাশের হিসাব মেলানো, মূসক ফরমের খসড়া</td><td class="is-you" data-t="d1b">পেমেন্ট অনুমোদন</td></tr>
-          <tr><th scope="row" data-t="d2">এইচআর</th><td class="is-ai" data-t="d2a">হাজিরা, ওভারটাইম, সিভি বাছাই, অফার লেটার</td><td class="is-you" data-t="d2b">নিয়োগের সিদ্ধান্ত</td></tr>
-          <tr><th scope="row" data-t="d3">বিক্রয় ও সাপোর্ট</th><td class="is-ai" data-t="d3a">মেসেঞ্জার ও হোয়াটসঅ্যাপে বাংলায় উত্তর, কোটেশন, অর্ডার এন্ট্রি</td><td class="is-you" data-t="d3b">ছাড় ও অভিযোগের সমাধান</td></tr>
-          <tr><th scope="row" data-t="d4">অপারেশন</th><td class="is-ai" data-t="d4a">দৈনিক উৎপাদন রিপোর্ট, স্টক সতর্কতা, ক্রয়ের অনুরোধ</td><td class="is-you" data-t="d4b">পরিকল্পনা বদল</td></tr>
-          <tr><th scope="row" data-t="d5">কমপ্লায়েন্স</th><td class="is-ai" data-t="d5a">অডিট ফাইল, এসওপি ভার্সন, লাইসেন্স নবায়নের রিমাইন্ডার</td><td class="is-you" data-t="d5b">চূড়ান্ত স্বাক্ষর</td></tr>
-        </tbody>
-      </table>
+      <div class="head"><h2 id="takes-h" data-t="takes.h">এআই কী নেবে, আপনার হাতে কী থাকবে</h2></div>
+      <div class="takes__in">
+        <div class="card card--night takes__pic" data-reveal><img src="body.webp" width="900" height="900" alt=""></div>
+        <div class="card dept" data-reveal style="--i:1">
+          <div class="dept__row"><h3 data-t="d1">হিসাব</h3><p data-t="d1a">ইনভয়েস মেলানো, ব্যাংক ও বিকাশের হিসাব মেলানো, মূসক ফরমের খসড়া</p><span class="dept__keep" data-t="d1b">পেমেন্ট অনুমোদন</span></div>
+          <div class="dept__row"><h3 data-t="d2">এইচআর</h3><p data-t="d2a">হাজিরা, ওভারটাইম, সিভি বাছাই, অফার লেটার</p><span class="dept__keep" data-t="d2b">নিয়োগের সিদ্ধান্ত</span></div>
+          <div class="dept__row"><h3 data-t="d3">বিক্রয় ও সাপোর্ট</h3><p data-t="d3a">মেসেঞ্জার ও হোয়াটসঅ্যাপে বাংলায় উত্তর, কোটেশন, অর্ডার এন্ট্রি</p><span class="dept__keep" data-t="d3b">ছাড় ও অভিযোগের সমাধান</span></div>
+          <div class="dept__row"><h3 data-t="d4">অপারেশন</h3><p data-t="d4a">দৈনিক উৎপাদন রিপোর্ট, স্টক সতর্কতা, ক্রয়ের অনুরোধ</p><span class="dept__keep" data-t="d4b">পরিকল্পনা বদল</span></div>
+          <div class="dept__row"><h3 data-t="d5">কমপ্লায়েন্স</h3><p data-t="d5a">অডিট ফাইল, এসওপি ভার্সন, লাইসেন্স নবায়নের রিমাইন্ডার</p><span class="dept__keep" data-t="d5b">চূড়ান্ত স্বাক্ষর</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="how" id="how" aria-labelledby="how-h">
     <div class="container">
-      <h2 id="how-h" class="head" data-t="how.h">চারটি ধাপ, প্রতিটিতে আপনার সম্মতি</h2>
+      <div class="head"><h2 id="how-h" data-t="how.h">চারটি ধাপ, প্রতিটিতে আপনার সম্মতি</h2></div>
       <ol class="stages">
-        <li><h3 data-t="s1">কাজের ম্যাপ</h3><dl><dt data-t="how.we">আমরা</dt><dd data-t="s1a">আপনার টিমের সাথে বসে বারবার করতে হয় এমন সব কাজের তালিকা করি।</dd><dt class="is-you" data-t="how.you">আপনি</dt><dd data-t="s1b">সবচেয়ে ভোগান্তির কাজটি বেছে নেন।</dd><dt class="is-ai" data-t="how.get">আপনি পাবেন</dt><dd data-t="s1c">শ্রম অনুযায়ী সাজানো লিখিত কাজের ম্যাপ।</dd></dl></li>
-        <li><h3 data-t="s2">পাইলট</h3><dl><dt data-t="how.we">আমরা</dt><dd data-t="s2a">আপনার আসল কাগজপত্র দিয়ে এআই তৈরি করি।</dd><dt class="is-you" data-t="how.you">আপনি</dt><dd data-t="s2b">কর্মীদের করা কাজের সাথে মিলিয়ে দেখেন।</dd><dt class="is-ai" data-t="how.get">আপনি পাবেন</dt><dd data-t="s2c">চালু পাইলট ও তার ফলাফল।</dd></dl></li>
-        <li><h3 data-t="s3">চালু</h3><dl><dt data-t="how.we">আমরা</dt><dd data-t="s3a">আপনার বর্তমান সফটওয়্যারের সাথে যুক্ত করি।</dd><dt class="is-you" data-t="how.you">আপনি</dt><dd data-t="s3b">চালু করার অনুমতি দেন।</dd><dt class="is-ai" data-t="how.get">আপনি পাবেন</dt><dd data-t="s3c">চালু সিস্টেম ও তার ডকুমেন্ট।</dd></dl></li>
-        <li><h3 data-t="s4">হস্তান্তর</h3><dl><dt data-t="how.we">আমরা</dt><dd data-t="s4a">বাংলায় প্রশিক্ষণ দিই, পাশে থাকি।</dd><dt class="is-you" data-t="how.you">আপনি</dt><dd data-t="s4b">নিজেরাই চালান, তারপর পরের কাজ বেছে নেন।</dd><dt class="is-ai" data-t="how.get">আপনি পাবেন</dt><dd data-t="s4c">প্রশিক্ষিত কর্মী ও নির্দিষ্ট যোগাযোগকারী।</dd></dl></li>
+        <li class="card" data-reveal style="--i:0"><h3 data-t="s1">কাজের ম্যাপ</h3><dl><dt data-t="how.we">আমরা</dt><dd data-t="s1a">আপনার টিমের সাথে বসে বারবার করতে হয় এমন সব কাজের তালিকা করি।</dd><dt data-t="how.you">আপনি</dt><dd data-t="s1b">সবচেয়ে ভোগান্তির কাজটি বেছে নেন।</dd><dt data-t="how.get">আপনি পাবেন</dt><dd data-t="s1c">শ্রম অনুযায়ী সাজানো লিখিত কাজের ম্যাপ।</dd></dl></li>
+        <li class="card" data-reveal style="--i:1"><h3 data-t="s2">পাইলট</h3><dl><dt data-t="how.we">আমরা</dt><dd data-t="s2a">আপনার আসল কাগজপত্র দিয়ে এআই তৈরি করি।</dd><dt data-t="how.you">আপনি</dt><dd data-t="s2b">কর্মীদের করা কাজের সাথে মিলিয়ে দেখেন।</dd><dt data-t="how.get">আপনি পাবেন</dt><dd data-t="s2c">চালু পাইলট ও তার ফলাফল।</dd></dl></li>
+        <li class="card" data-reveal style="--i:2"><h3 data-t="s3">চালু</h3><dl><dt data-t="how.we">আমরা</dt><dd data-t="s3a">আপনার বর্তমান সফটওয়্যারের সাথে যুক্ত করি।</dd><dt data-t="how.you">আপনি</dt><dd data-t="s3b">চালু করার অনুমতি দেন।</dd><dt data-t="how.get">আপনি পাবেন</dt><dd data-t="s3c">চালু সিস্টেম ও তার ডকুমেন্ট।</dd></dl></li>
+        <li class="card" data-reveal style="--i:3"><h3 data-t="s4">হস্তান্তর</h3><dl><dt data-t="how.we">আমরা</dt><dd data-t="s4a">বাংলায় প্রশিক্ষণ দিই, পাশে থাকি।</dd><dt data-t="how.you">আপনি</dt><dd data-t="s4b">নিজেরাই চালান, তারপর পরের কাজ বেছে নেন।</dd><dt data-t="how.get">আপনি পাবেন</dt><dd data-t="s4c">প্রশিক্ষিত কর্মী ও নির্দিষ্ট যোগাযোগকারী।</dd></dl></li>
       </ol>
     </div>
   </section>
 
   <section class="trust" id="trust" aria-labelledby="trust-h">
     <div class="container">
-      <h2 id="trust-h" class="head" data-t="t.h">কাজ শুরুর আগে, লিখিতভাবে</h2>
-      <dl class="qa qa--three">
-        <div><dt data-t="t1">স্বাক্ষরিত এনডিএ</dt><dd data-t="t1p">প্রথম কাগজ দেখার আগেই আমরা স্বাক্ষর করি।</dd></div>
-        <div><dt data-t="t2">আপনার তথ্য আপনারই</dt><dd data-t="t2p">পাবলিক এআই মডেল শেখাতে এটি কখনো ব্যবহার হয় না।</dd></div>
-        <div><dt data-t="t3">নির্দিষ্ট অ্যাক্সেস</dt><dd data-t="t3p">শুধু প্রকল্পের নির্দিষ্ট লোকেরাই আপনার ফাইল খোলেন।</dd></div>
-        <div><dt data-t="t4">ফলাফলের মালিক আপনি</dt><dd data-t="t4p">আপনার জন্য তৈরি ওয়ার্কফ্লো, প্রম্পট ও ডকুমেন্ট আপনার কাছেই থাকে।</dd></div>
-        <div><dt data-t="t5">আগে পাইলট</dt><dd data-t="t5p">এগোনোর আগে আসল কাজে একটি কাজ যাচাই করেন।</dd></div>
-        <div><dt data-t="t6">স্বাক্ষর মানুষের</dt><dd data-t="t6p">অনুমোদন, পেমেন্ট ও কমপ্লায়েন্স আপনার কর্মীদের হাতে থাকে।</dd></div>
-      </dl>
+      <div class="card card--night trust__card" data-reveal>
+        <div>
+          <h2 id="trust-h" data-t="t.h">কাজ শুরুর আগে, লিখিতভাবে</h2>
+          <dl class="trust__list">
+            <div><dt data-t="t1">স্বাক্ষরিত এনডিএ</dt><dd data-t="t1p">প্রথম কাগজ দেখার আগেই আমরা স্বাক্ষর করি।</dd></div>
+            <div><dt data-t="t2">আপনার তথ্য আপনারই</dt><dd data-t="t2p">পাবলিক এআই মডেল শেখাতে এটি কখনো ব্যবহার হয় না।</dd></div>
+            <div><dt data-t="t3">নির্দিষ্ট অ্যাক্সেস</dt><dd data-t="t3p">শুধু প্রকল্পের নির্দিষ্ট লোকেরাই আপনার ফাইল খোলেন।</dd></div>
+            <div><dt data-t="t4">ফলাফলের মালিক আপনি</dt><dd data-t="t4p">আপনার জন্য তৈরি ওয়ার্কফ্লো, প্রম্পট ও ডকুমেন্ট আপনার কাছেই থাকে।</dd></div>
+            <div><dt data-t="t5">আগে পাইলট</dt><dd data-t="t5p">এগোনোর আগে আসল কাজে একটি কাজ যাচাই করেন।</dd></div>
+            <div><dt data-t="t6">স্বাক্ষর মানুষের</dt><dd data-t="t6p">অনুমোদন, পেমেন্ট ও কমপ্লায়েন্স আপনার কর্মীদের হাতে থাকে।</dd></div>
+          </dl>
+        </div>
+        <img class="trust__pic" src="head.webp" width="900" height="1064" alt="">
+      </div>
     </div>
   </section>
 
   <section class="fit" aria-labelledby="fit-h">
     <div class="container">
-      <h2 id="fit-h" class="head" data-t="fit.h">মূসক, এলসি আর বাংলিশ, সবই চিনি</h2>
-      <div class="panels fit__grid">
-        <div class="fit__lead">
+      <div class="head"><h2 id="fit-h" data-t="fit.h">মূসক, এলসি আর বাংলিশ, সবই চিনি</h2></div>
+      <div class="fit__grid">
+        <div class="card fit__lead" data-reveal>
           <h3 data-t="fit.lang">বাংলা, ইংরেজি, বাংলিশ</h3>
           <dl class="tongue">
-            <dt data-t="fit.lang1">গ্রাহক লেখেন</dt><dd class="tongue__v tongue__v--you" lang="bn-Latn">koto dam bhai?</dd>
-            <dt data-t="fit.lang2">এআই পড়ে</dt><dd class="tongue__v tongue__v--ai" data-t="fit.langv2">কত দাম ভাই?</dd>
-            <dt data-t="fit.lang3">রিপোর্টে যায়</dt><dd class="tongue__v tongue__v--ai" data-t="fit.langv3">দাম জানতে চাইছেন</dd>
+            <div><dt data-t="fit.lang1">গ্রাহক লেখেন</dt><dd lang="bn-Latn">koto dam bhai?</dd></div>
+            <div><dt data-t="fit.lang2">এআই পড়ে</dt><dd data-t="fit.langv2">কত দাম ভাই?</dd></div>
+            <div><dt data-t="fit.lang3">রিপোর্টে যায়</dt><dd data-t="fit.langv3">দাম জানতে চাইছেন</dd></div>
           </dl>
         </div>
-        <div><h3 data-t="fit.a">কাগজও চলবে</h3><p data-t="fit.ap">স্ক্যান, ফোনের ছবি, হাতে লেখা খাতা।</p></div>
-        <div><h3 data-t="fit.b">আপনার চেনা টুল</h3><p data-t="fit.bp">এক্সেল, ট্যালি, হোয়াটসঅ্যাপ, মেসেঞ্জার।</p></div>
-        <div><h3 data-t="fit.c">নেট চলে গেলে</h3><p data-t="fit.cp">কাজ জমা থাকে, নেট এলে আবার চলে।</p></div>
+        <div class="card card--night fit__hand" data-reveal style="--i:1"><h3 data-t="fit.a">কাগজও চলবে</h3><p data-t="fit.ap">স্ক্যান, ফোনের ছবি, হাতে লেখা খাতা।</p><img src="hand.webp" width="800" height="1139" alt=""></div>
+        <div class="card fit__small" data-reveal><h3 data-t="fit.b">আপনার চেনা টুল</h3><p data-t="fit.bp">এক্সেল, ট্যালি, হোয়াটসঅ্যাপ, মেসেঞ্জার।</p></div>
+        <div class="card fit__small" data-reveal style="--i:1"><h3 data-t="fit.c">নেট চলে গেলে</h3><p data-t="fit.cp">কাজ জমা থাকে, নেট এলে আবার চলে।</p></div>
       </div>
     </div>
   </section>
 
   <section class="faq" id="faq" aria-labelledby="faq-h">
     <div class="container">
-      <h2 id="faq-h" class="head" data-t="faq.h">ফাইল দেওয়ার আগে যা জানা দরকার</h2>
+      <div class="head"><h2 id="faq-h" data-t="faq.h">ফাইল দেওয়ার আগে যা জানা দরকার</h2></div>
       <dl class="qa">
-        <div><dt data-t="q1">কর্মী ছাঁটাই করতে হবে?</dt><dd data-t="a1">না। বারবার করার অংশটুকু এআই করে, সিদ্ধান্ত থাকে আপনার কর্মীদের হাতে।</dd></div>
-        <div><dt data-t="q2">আমাদের কাগজপত্র কোথায় যাবে?</dt><dd data-t="a2">শুধু আপনার অনুমোদিত জায়গায়। কাজ শুরুর আগে এটি লিখিতভাবে ঠিক করা হয়।</dd></div>
-        <div><dt data-t="q3">আমরা এখনো কাগজ আর এক্সেলে চলি। এতে কি সমস্যা হবে?</dt><dd data-t="a3">না। শুরু করার জন্য এটাই ভালো জায়গা।</dd></div>
-        <div><dt data-t="q4">খরচ কত?</dt><dd data-t="a4">কাজের ম্যাপের পর প্রতিটি কাজের জন্য আলাদা কোটেশন দিই।</dd></div>
-        <div><dt data-t="q5">পাইলট কাজে না লাগলে?</dt><dd data-t="a5">সেখানেই থামবেন, কাজের ম্যাপটি আপনার কাছে থাকবে।</dd></div>
-        <div><dt data-t="q6">নিজস্ব আইটি টিম লাগবে?</dt><dd data-t="a6">না। কাজটি জানেন এমন একজন থাকলেই শুরু করা যায়।</dd></div>
+        <div class="card" data-reveal style="--i:0"><dt data-t="q1">কর্মী ছাঁটাই করতে হবে?</dt><dd data-t="a1">না। বারবার করার অংশটুকু এআই করে, সিদ্ধান্ত থাকে আপনার কর্মীদের হাতে।</dd></div>
+        <div class="card" data-reveal style="--i:1"><dt data-t="q2">আমাদের কাগজপত্র কোথায় যাবে?</dt><dd data-t="a2">শুধু আপনার অনুমোদিত জায়গায়। কাজ শুরুর আগে এটি লিখিতভাবে ঠিক করা হয়।</dd></div>
+        <div class="card" data-reveal style="--i:0"><dt data-t="q3">আমরা এখনো কাগজ আর এক্সেলে চলি। এতে কি সমস্যা হবে?</dt><dd data-t="a3">না। শুরু করার জন্য এটাই ভালো জায়গা।</dd></div>
+        <div class="card" data-reveal style="--i:1"><dt data-t="q4">খরচ কত?</dt><dd data-t="a4">কাজের ম্যাপের পর প্রতিটি কাজের জন্য আলাদা কোটেশন দিই।</dd></div>
+        <div class="card" data-reveal style="--i:0"><dt data-t="q5">পাইলট কাজে না লাগলে?</dt><dd data-t="a5">সেখানেই থামবেন, কাজের ম্যাপটি আপনার কাছে থাকবে।</dd></div>
+        <div class="card" data-reveal style="--i:1"><dt data-t="q6">নিজস্ব আইটি টিম লাগবে?</dt><dd data-t="a6">না। কাজটি জানেন এমন একজন থাকলেই শুরু করা যায়।</dd></div>
       </dl>
     </div>
   </section>
 
   <section class="contact" id="contact" aria-labelledby="c-h">
+    <svg class="hero__ghost" viewBox="0 0 1000 150" aria-hidden="true"><text x="500" y="122" text-anchor="middle" textLength="990" lengthAdjust="spacingAndGlyphs">RUPANTOR</text></svg>
     <div class="container contact__in">
       <div>
         <h2 id="c-h" data-t="c.h">কাজের পর্যালোচনা বুক করুন</h2>
@@ -422,7 +447,7 @@ html[data-lang="en"] .foot__mark { font-size: clamp(4rem, 16.5vw, 15.5rem); }
           <dt data-t="c.office">অফিস</dt><dd><span class="fill" data-fill="office" data-t="c.officev">ঠিকানা যোগ করা হবে</span></dd>
         </dl>
       </div>
-      <form class="form" id="form" data-endpoint="" novalidate>
+      <form class="card form" id="form" data-reveal data-endpoint="" novalidate>
         <div class="field"><label for="f-name" data-t="f.name">আপনার নাম</label><input id="f-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="f-company" data-t="f.company">কোম্পানি</label><input id="f-company" name="company" autocomplete="organization"></div>
         <div class="field"><label for="f-role" data-t="f.role">আপনার পদ</label><input id="f-role" name="role" autocomplete="organization-title"></div>
@@ -574,6 +599,15 @@ html[data-lang="en"] .foot__mark { font-size: clamp(4rem, 16.5vw, 15.5rem); }
       if (es[0].isIntersecting) { benchIo.disconnect(); showTask(active, true); }
     }, { threshold: 0.35 });
     benchIo.observe(document.getElementById('panel'));
+  }
+
+  if ('IntersectionObserver' in window) {
+    var revealIo = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); revealIo.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(function (el) { revealIo.observe(el); });
+  } else {
+    document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('is-in'); });
   }
 
   /* the form has no endpoint yet, and says so */
