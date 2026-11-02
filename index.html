@@ -124,18 +124,26 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .lang:hover { color: var(--color-accent); }
 .lang:active { transform: translateY(1px); }
 
-.hero { position: relative; isolation: isolate; display: flex; flex-direction: column; align-items: center; height: max(calc(100dvh - var(--nav-h)), 640px); background: var(--color-stage); overflow: clip; text-align: center; }
-.hero__ghost { position: absolute; z-index: 0; left: 50%; top: 58%; width: min(100%, 110rem); transform: translate(-50%, -50%); overflow: visible; }
-.hero__ghost text { fill: var(--color-ghost); font: 900 150px var(--font-ghost); }
-.hero__back { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; width: 100%; padding: var(--space-xl) var(--space-md) 0; }
-.hero h1 { max-width: 12.5em; font-size: clamp(2.5rem, 5.1vw, 4.75rem); letter-spacing: -0.04em; line-height: 1.04; }
-html[data-lang="bn"] .hero h1 { max-width: 16em; font-size: clamp(2.5rem, 4.6vw, 4.5rem); line-height: 1.18; }
-.hero .lead { margin-top: var(--space-md); width: min(100%, 54rem); max-width: none; columns: 2; column-gap: 14rem; orphans: 1; widows: 1; color: var(--color-ink-2); font-size: var(--text-md); }
-.hero .lead span { display: block; }
-.hero__stage { position: absolute; z-index: 2; inset: 0; pointer-events: none; }
+.hero { position: relative; isolation: isolate; display: flex; align-items: center; min-height: max(calc(100dvh - var(--nav-h)), 640px); background: var(--color-stage); overflow: clip; }
+.hero__ghost { position: absolute; z-index: 0; right: -2%; top: 50%; width: min(56%, 54rem); transform: translateY(-50%); overflow: visible; }
+.hero__ghost text { fill: var(--color-ghost); font: 900 300px var(--font-ghost); }
+.hero__in { position: relative; z-index: 3; padding-block: var(--space-xl); }
+.hero__copy { width: 46%; min-width: 0; }
+.hero h1 { max-width: none; font-size: clamp(2.5rem, 4.5vw, 4.5rem); letter-spacing: -0.04em; line-height: 1.04; }
+html[data-lang="bn"] .hero h1 { max-width: none; font-size: clamp(2.5rem, 4.1vw, 4.1rem); line-height: 1.18; }
+.hero .lead { margin-top: var(--space-md); max-width: 34rem; color: var(--color-ink-2); }
+.actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-lg); }
+.hero .btn--line { background: var(--color-ghost); border-color: var(--color-ghost); }
+.hero__stage { position: absolute; z-index: 2; top: 0; bottom: 0; right: 0; width: 54%; pointer-events: none; }
 .hero__gl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.actions { position: absolute; z-index: 3; left: 50%; top: 45%; transform: translateX(-50%); width: max-content; max-width: calc(100% - var(--space-xl)); display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm); }
-.hero__pause { position: absolute; z-index: 3; left: max(var(--gutter), env(safe-area-inset-left, 0px)); bottom: var(--space-lg); min-height: 44px; }
+.ops { position: absolute; z-index: 2; display: grid; gap: var(--space-3xs); width: 12.5rem; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-field); background: var(--color-paper); }
+.ops strong { font-size: var(--text-md); font-weight: 700; line-height: 1.25; }
+.ops__state { justify-self: start; margin-top: var(--space-2xs); padding: var(--space-3xs) var(--space-xs); border-radius: var(--radius-pill); background: var(--color-stage); font-size: var(--text-sm); font-weight: 500; }
+.ops__state[data-t="ops.done"] { background: var(--color-ink); color: var(--color-paper); }
+.ops--1 { left: 0; top: 14%; }
+.ops--2 { right: 4%; top: 34%; }
+.ops--3 { left: 2%; bottom: 13%; }
+.hero__pause { position: absolute; z-index: 3; right: max(var(--gutter), env(safe-area-inset-right, 0px)); bottom: var(--space-lg); min-height: 44px; }
 .js .hero h1, .js .hero .lead, .js .hero__ghost { animation: settle 900ms var(--ease-out) both; }
 .js .hero__stage { opacity: 0; transition: opacity 900ms var(--ease-out); }
 .js[data-robot] .hero__stage { opacity: 1; }
@@ -183,8 +191,11 @@ html[data-lang="bn"] .bench__raw { letter-spacing: 0; line-height: 1.65; }
 .bench__bar span.is-done { transform: scaleX(0); }
 
 .takes__in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-md); align-items: stretch; }
-.takes__pic { position: relative; overflow: hidden; padding: 0; min-height: 26rem; }
-.takes__pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.shift { display: grid; align-content: center; gap: var(--space-xl); }
+.shift h3 { font-size: var(--text-title); font-weight: 700; }
+.shift ul { display: grid; gap: var(--space-xs); margin: var(--space-sm) 0 0; padding: 0; list-style: none; }
+.shift div:first-child li { color: var(--color-night-muted); text-decoration: line-through; text-decoration-color: var(--color-night-rule); }
+.shift div:last-child li { font-size: var(--text-lg); font-weight: 500; }
 .dept { padding-block: var(--space-sm); }
 .dept__row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-2xs) var(--space-md); align-items: baseline; padding-block: var(--space-md); border-top: 1px solid var(--color-rule-3); }
 .dept__row:first-child { border-top: 0; }
@@ -202,21 +213,19 @@ html[data-lang="bn"] .stages li::before { content: counter(stage, bengali); }
 .stages dd { margin: 0; }
 .stages dd:last-child { font-weight: 500; }
 
-.trust__card { position: relative; display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: var(--space-xl); overflow: hidden; padding-right: 0; }
-.trust__card h2 { margin-bottom: var(--space-xl); max-width: 16ch; }
-.trust__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg) var(--space-xl); margin: 0; }
+.trust__card { display: grid; justify-items: center; }
+.trust__card h2 { margin-bottom: var(--space-2xl); max-width: 20ch; text-align: center; }
+.trust__card > div { width: 100%; display: grid; justify-items: center; }
+.trust__list { width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg) var(--space-xl); margin: 0; }
 .trust__list dt { font-size: var(--text-title); font-weight: 700; line-height: 1.25; }
 .trust__list dd { margin: var(--space-2xs) 0 0; color: var(--color-night-muted); }
-.trust__pic { align-self: end; justify-self: end; width: 100%; max-width: 26rem; margin-bottom: calc(-1 * var(--space-card)); }
 
 .fit__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-md); }
-.fit__lead { grid-column: span 7; grid-row: span 2; }
-.fit__hand { grid-column: span 5; grid-row: span 2; position: relative; overflow: hidden; min-height: 24rem; }
-.fit__hand img { position: absolute; right: 2%; bottom: -14%; width: 72%; -webkit-mask-image: linear-gradient(to bottom, transparent 8%, black 38%); mask-image: linear-gradient(to bottom, transparent 8%, black 38%); }
-.fit__small { grid-column: span 6; }
+.fit__lead { grid-column: span 7; }
+.fit__side { grid-column: span 5; display: grid; gap: var(--space-md); }
 .fit__grid h3 { font-size: var(--text-title); font-weight: 700; }
 .fit__grid p { margin-top: var(--space-xs); color: var(--color-ink-2); }
-.fit__hand p { color: var(--color-night-muted); max-width: 18ch; }
+.fit__side .card--night p { color: var(--color-night-muted); }
 .tongue { display: grid; gap: var(--space-sm); margin: var(--space-xl) 0 0; }
 .tongue > div { width: fit-content; max-width: 100%; padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-bubble); background: var(--color-paper); }
 .tongue > div:last-child { justify-self: end; background: var(--color-ink); color: var(--color-paper); }
@@ -230,7 +239,6 @@ html[data-lang="bn"] .tongue dd { letter-spacing: 0; }
 .qa dd { margin: var(--space-xs) 0 0; color: var(--color-ink-2); }
 
 main > section.contact { position: relative; overflow: clip; background: var(--color-stage); }
-.contact .hero__ghost { top: 20%; }
 .contact__in { position: relative; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-xl); align-items: center; }
 .contact h2 { max-width: 13ch; }
 .contact .lead { margin-top: var(--space-md); color: var(--color-ink-2); }
@@ -263,24 +271,24 @@ html[data-lang="bn"] .foot__mark { letter-spacing: 0; line-height: 1.25; }
   .stages { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 60rem) {
-  .hero .lead { columns: auto; width: auto; max-width: 46ch; }
-  .hero__back { padding-top: var(--space-lg); }
-  [data-robot="ready"] .hero__stage { position: relative; inset: auto; flex: 1 1 0; min-height: 0; left: auto; top: auto; width: 100%; height: auto; margin-top: var(--space-xs); }
-  .actions { top: auto; bottom: calc(var(--space-3xl) - var(--space-xs)); }
-  .hero .hero__ghost { top: 72%; }
+  .hero { flex-direction: column; align-items: stretch; min-height: 0; }
+  .hero__in { padding-block: var(--space-xl) 0; }
+  .hero__copy { width: 100%; }
+  .hero__stage { position: relative; inset: auto; width: 100%; height: clamp(26rem, 100vw, 38rem); }
+  .hero__ghost { top: auto; bottom: 8%; right: 0; width: 100%; transform: none; }
+  .ops { width: 10.5rem; padding: var(--space-xs) var(--space-sm); }
+  .ops--1 { left: var(--space-sm); top: 5%; }
+  .ops--2 { right: var(--space-sm); top: 26%; }
+  .ops--3 { left: var(--space-sm); bottom: 8%; }
   .nav__links { display: none; }
   .nav__in { justify-content: space-between; }
   .tabs { justify-content: flex-start; }
-  .bench__panel, .takes__in, .qa, .contact__in, .trust__card { grid-template-columns: minmax(0, 1fr); }
-  .takes__pic { min-height: 22rem; }
-  .trust__card { padding-right: var(--space-card); }
-  .trust__pic { justify-self: center; max-width: 20rem; }
-  .fit__lead, .fit__hand, .fit__small { grid-column: 1 / -1; grid-row: auto; }
-  .contact .hero__ghost { top: var(--space-2xl); }
+  .bench__panel, .takes__in, .qa, .contact__in,       .fit__lead, .fit__side { grid-column: 1 / -1; }
 }
 @media (max-width: 40rem) {
-  .hero { height: max(calc(100svh - var(--nav-h)), 620px); }
-  .hero__pause { left: var(--space-md); bottom: var(--space-md); }
+  .hero__pause { right: var(--space-md); bottom: var(--space-md); }
+  .ops { width: 9.25rem; }
+  .ops strong { font-size: var(--text-sm); }
   .stages, .trust__list, .form { grid-template-columns: minmax(0, 1fr); }
   .stages li::before { margin-bottom: var(--space-sm); }
   .bench__sign { flex-direction: column; align-items: flex-start; border-radius: var(--radius-card); }
@@ -318,15 +326,22 @@ html[data-lang="bn"] .foot__mark { letter-spacing: 0; line-height: 1.25; }
 
 <main id="main">
   <section class="hero" aria-labelledby="hero-h">
-    <svg class="hero__ghost" viewBox="0 0 1000 150" aria-hidden="true"><text x="500" y="122" text-anchor="middle" textLength="990" lengthAdjust="spacingAndGlyphs">RUPANTOR</text></svg>
-    <div class="hero__back">
-      <h1 id="hero-h" data-t="hero.h">আপনার কোম্পানির কাজ, এবার চলবে এআই দিয়ে।</h1>
-      <p class="lead" data-t="hero.p">আপনার কোম্পানির বারবার করার কাজ আমরা এআই-তে নিয়ে যাই, ম্যাপিং থেকে হস্তান্তর পর্যন্ত।</p>
+    <svg class="hero__ghost" viewBox="0 0 520 300" aria-hidden="true"><text x="260" y="262" text-anchor="middle">AX</text></svg>
+    <div class="container hero__in">
+      <div class="hero__copy">
+        <h1 id="hero-h" data-t="hero.h">আপনার পুরো কোম্পানির জন্য এআই রূপান্তর।</h1>
+        <p class="lead" data-t="hero.p">আমরা বিভাগ ধরে কাজ ম্যাপ করি, বারবার করার কাজ স্বয়ংক্রিয় করি, আর আপনার টিমকে শিখিয়ে দিই।</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="#contact" data-t="hero.a1">কাজের পর্যালোচনা বুক করুন</a>
+          <a class="btn btn--line" href="#bench" data-t="hero.a2">কীভাবে হয় দেখুন</a>
+        </div>
+      </div>
     </div>
-    <div class="hero__stage"><canvas class="hero__gl" id="gl" aria-hidden="true"></canvas></div>
-    <div class="actions">
-      <a class="btn btn--primary" href="#contact" data-t="hero.a1">কাজের পর্যালোচনা বুক করুন</a>
-      <a class="btn btn--line" href="#bench" data-t="hero.a2">কীভাবে হয় দেখুন</a>
+    <div class="hero__stage">
+      <canvas class="hero__gl" id="gl" aria-hidden="true"></canvas>
+        <div class="ops ops--1"><span class="tag" data-t="ops1">হিসাব</span><strong data-t="ops1t">ইনভয়েস মেলানো</strong><span class="ops__state" data-t="ops.run" data-ops>এআই করছে</span></div>
+        <div class="ops ops--2"><span class="tag" data-t="ops2">এইচআর</span><strong data-t="ops2t">ওভারটাইম যাচাই</strong><span class="ops__state" data-t="ops.run" data-ops>এআই করছে</span></div>
+        <div class="ops ops--3"><span class="tag" data-t="ops3">অপারেশন</span><strong data-t="ops3t">দৈনিক রিপোর্ট</strong><span class="ops__state" data-t="ops.run" data-ops>এআই করছে</span></div>
     </div>
     <button class="btn btn--line hero__pause" type="button" id="pause" hidden data-t="pause">থামান</button>
   </section>
@@ -360,7 +375,10 @@ html[data-lang="bn"] .foot__mark { letter-spacing: 0; line-height: 1.25; }
     <div class="container">
       <div class="head"><h2 id="takes-h" data-t="takes.h">এআই কী নেবে, আপনার হাতে কী থাকবে</h2></div>
       <div class="takes__in">
-        <div class="card card--night takes__pic" data-reveal><img src="body.webp" width="900" height="900" alt=""></div>
+        <div class="card card--night shift" data-reveal>
+          <div><h3 data-t="takes.before">আজ আপনার টিম</h3><ul><li data-t="b1">ফাইল থেকে ফাইলে সংখ্যা কপি</li><li data-t="b2">কাগজ আর স্বাক্ষরের পেছনে ছোটা</li><li data-t="b3">প্রতিদিন একই রিপোর্ট টাইপ</li></ul></div>
+          <div><h3 data-t="takes.after">এএক্স-এর পরে</h3><ul><li data-t="a1i">এআই যা ধরেছে তা যাচাই</li><li data-t="a2i">সব তথ্য দেখে অনুমোদন</li><li data-t="a3i">গ্রাহক ও পরিকল্পনার জন্য সময়</li></ul></div>
+        </div>
         <div class="card dept" data-reveal style="--i:1">
           <div class="dept__row"><h3 data-t="d1">হিসাব</h3><p data-t="d1a">ইনভয়েস মেলানো, ব্যাংক ও বিকাশের হিসাব মেলানো, মূসক ফরমের খসড়া</p><span class="dept__keep" data-t="d1b">পেমেন্ট অনুমোদন</span></div>
           <div class="dept__row"><h3 data-t="d2">এইচআর</h3><p data-t="d2a">হাজিরা, ওভারটাইম, সিভি বাছাই, অফার লেটার</p><span class="dept__keep" data-t="d2b">নিয়োগের সিদ্ধান্ত</span></div>
@@ -398,7 +416,6 @@ html[data-lang="bn"] .foot__mark { letter-spacing: 0; line-height: 1.25; }
             <div><dt data-t="t6">স্বাক্ষর মানুষের</dt><dd data-t="t6p">অনুমোদন, পেমেন্ট ও কমপ্লায়েন্স আপনার কর্মীদের হাতে থাকে।</dd></div>
           </dl>
         </div>
-        <img class="trust__pic" src="head.webp" width="900" height="1064" alt="">
       </div>
     </div>
   </section>
@@ -415,9 +432,9 @@ html[data-lang="bn"] .foot__mark { letter-spacing: 0; line-height: 1.25; }
             <div><dt data-t="fit.lang3">রিপোর্টে যায়</dt><dd data-t="fit.langv3">দাম জানতে চাইছেন</dd></div>
           </dl>
         </div>
-        <div class="card card--night fit__hand" data-reveal style="--i:1"><h3 data-t="fit.a">কাগজও চলবে</h3><p data-t="fit.ap">স্ক্যান, ফোনের ছবি, হাতে লেখা খাতা।</p><img src="hand.webp" width="800" height="1139" alt=""></div>
-        <div class="card fit__small" data-reveal><h3 data-t="fit.b">আপনার চেনা টুল</h3><p data-t="fit.bp">এক্সেল, ট্যালি, হোয়াটসঅ্যাপ, মেসেঞ্জার।</p></div>
-        <div class="card fit__small" data-reveal style="--i:1"><h3 data-t="fit.c">নেট চলে গেলে</h3><p data-t="fit.cp">কাজ জমা থাকে, নেট এলে আবার চলে।</p></div>
+        <div class="fit__side"><div class="card card--night" data-reveal style="--i:1"><h3 data-t="fit.a">কাগজও চলবে</h3><p data-t="fit.ap">স্ক্যান, ফোনের ছবি, হাতে লেখা খাতা।</p></div>
+        <div class="card" data-reveal style="--i:2"><h3 data-t="fit.b">আপনার চেনা টুল</h3><p data-t="fit.bp">এক্সেল, ট্যালি, হোয়াটসঅ্যাপ, মেসেঞ্জার।</p></div>
+        <div class="card" data-reveal style="--i:3"><h3 data-t="fit.c">নেট চলে গেলে</h3><p data-t="fit.cp">কাজ জমা থাকে, নেট এলে আবার চলে।</p></div></div>
       </div>
     </div>
   </section>
@@ -437,7 +454,6 @@ html[data-lang="bn"] .foot__mark { letter-spacing: 0; line-height: 1.25; }
   </section>
 
   <section class="contact" id="contact" aria-labelledby="c-h">
-    <svg class="hero__ghost" viewBox="0 0 1000 150" aria-hidden="true"><text x="500" y="122" text-anchor="middle" textLength="990" lengthAdjust="spacingAndGlyphs">RUPANTOR</text></svg>
     <div class="container contact__in">
       <div>
         <h2 id="c-h" data-t="c.h">কাজের পর্যালোচনা বুক করুন</h2>
@@ -455,7 +471,7 @@ html[data-lang="bn"] .foot__mark { letter-spacing: 0; line-height: 1.25; }
         <div class="field field--wide"><label for="f-industry" data-t="f.industry">খাত</label><select id="f-industry" name="industry"><option>গার্মেন্টস</option><option>ব্যাংকিং</option><option>ফার্মা</option><option>আমদানি-রপ্তানি</option><option>অনলাইন শপ</option><option>হেড অফিস</option></select></div>
         <div class="field field--wide"><label for="f-task" data-t="f.task">কোন কাজে সবচেয়ে বেশি সময় যায়?</label><textarea id="f-task" name="task" rows="3" required></textarea></div>
         <div class="field--wide form__end">
-          <button class="btn btn--primary" type="submit" data-t="f.send">পর্যালোচনার অনুরোধ পাঠান</button>
+          <button class="btn btn--primary" type="submit" data-t="f.send">অনুরোধ পাঠান</button>
           <p class="form__help" id="f-help" aria-live="polite"></p>
         </div>
       </form>
@@ -480,7 +496,7 @@ html[data-lang="bn"] .foot__mark { letter-spacing: 0; line-height: 1.25; }
 
 <script>window.RX_MODEL="nexbot.wasm";</script>
 <script src="nexbot.bundle.js"></script>
-<script>window.RX_I18N={"meta.title": {"en": "Rupantor AX", "bn": "রূপান্তর AX"}, "brand": {"en": "Rupantor", "bn": "রূপান্তর"}, "skip": {"en": "Skip to content", "bn": "মূল অংশে যান"}, "nav.bench": {"en": "See a task", "bn": "কাজ দেখুন"}, "nav.takes": {"en": "What AI takes", "bn": "এআই কী করবে"}, "nav.how": {"en": "How we work", "bn": "কাজের ধারা"}, "nav.faq": {"en": "Questions", "bn": "প্রশ্ন"}, "nav.talk": {"en": "Talk to us", "bn": "কথা বলুন"}, "hero.h": {"en": "Your company's work, running on AI.", "bn": "আপনার কোম্পানির কাজ, এবার চলবে এআই দিয়ে।"}, "hero.p": {"en": "We move your company's repeating work onto AI, from mapping to handover.", "bn": "আপনার কোম্পানির বারবার করার কাজ আমরা এআই-তে নিয়ে যাই, ম্যাপিং থেকে হস্তান্তর পর্যন্ত।"}, "hero.a1": {"en": "Book a work review", "bn": "কাজের পর্যালোচনা বুক করুন"}, "hero.a2": {"en": "Watch it work", "bn": "কীভাবে হয় দেখুন"}, "pause": {"en": "Pause", "bn": "থামান"}, "play": {"en": "Play", "bn": "চালান"}, "bench.h": {"en": "Watch one task change", "bn": "একটি কাজ কীভাবে বদলে যায়, দেখুন"}, "bench.p": {"en": "Paperwork you know from Bangladeshi offices. Every name and number here is a sample.", "bn": "বাংলাদেশের অফিসের চেনা কাগজপত্র। এখানকার সব নাম ও সংখ্যা নমুনা।"}, "bench.in": {"en": "Comes in", "bn": "যা আসে"}, "bench.out": {"en": "Comes out", "bn": "যা পাবেন"}, "bench.sign": {"en": "A person decides", "bn": "সিদ্ধান্ত মানুষের"}, "bench.again": {"en": "Run again", "bn": "আবার চালান"}, "takes.h": {"en": "What AI takes, what you keep", "bn": "এআই কী নেবে, আপনার হাতে কী থাকবে"}, "takes.c1": {"en": "Department", "bn": "বিভাগ"}, "takes.c2": {"en": "AI takes", "bn": "এআই করবে"}, "takes.c3": {"en": "Your people keep", "bn": "আপনার লোকদের হাতে"}, "d1": {"en": "Finance", "bn": "হিসাব"}, "d1a": {"en": "Invoice matching, bank and bKash reconciliation, Mushak drafts", "bn": "ইনভয়েস মেলানো, ব্যাংক ও বিকাশের হিসাব মেলানো, মূসক ফরমের খসড়া"}, "d1b": {"en": "Payment approval", "bn": "পেমেন্ট অনুমোদন"}, "d2": {"en": "HR", "bn": "এইচআর"}, "d2a": {"en": "Attendance, overtime, CV screening, offer letters", "bn": "হাজিরা, ওভারটাইম, সিভি বাছাই, অফার লেটার"}, "d2b": {"en": "Hiring decisions", "bn": "নিয়োগের সিদ্ধান্ত"}, "d3": {"en": "Sales and support", "bn": "বিক্রয় ও সাপোর্ট"}, "d3a": {"en": "Bangla replies on Messenger and WhatsApp, quotations, order entry", "bn": "মেসেঞ্জার ও হোয়াটসঅ্যাপে বাংলায় উত্তর, কোটেশন, অর্ডার এন্ট্রি"}, "d3b": {"en": "Discounts and complaints", "bn": "ছাড় ও অভিযোগের সমাধান"}, "d4": {"en": "Operations", "bn": "অপারেশন"}, "d4a": {"en": "Daily production reports, stock alerts, purchase requests", "bn": "দৈনিক উৎপাদন রিপোর্ট, স্টক সতর্কতা, ক্রয়ের অনুরোধ"}, "d4b": {"en": "Plan changes", "bn": "পরিকল্পনা বদল"}, "d5": {"en": "Compliance", "bn": "কমপ্লায়েন্স"}, "d5a": {"en": "Audit files, SOP versions, licence renewal reminders", "bn": "অডিট ফাইল, এসওপি ভার্সন, লাইসেন্স নবায়নের রিমাইন্ডার"}, "d5b": {"en": "Final signature", "bn": "চূড়ান্ত স্বাক্ষর"}, "how.h": {"en": "Four stages, each one signed", "bn": "চারটি ধাপ, প্রতিটিতে আপনার সম্মতি"}, "how.we": {"en": "We", "bn": "আমরা"}, "how.you": {"en": "You", "bn": "আপনি"}, "s1": {"en": "Work map", "bn": "কাজের ম্যাপ"}, "s1a": {"en": "Sit with your team and list every repeating task.", "bn": "আপনার টিমের সাথে বসে বারবার করতে হয় এমন সব কাজের তালিকা করি।"}, "s1b": {"en": "Pick the task that hurts most.", "bn": "সবচেয়ে ভোগান্তির কাজটি বেছে নেন।"}, "s2": {"en": "Pilot", "bn": "পাইলট"}, "s2a": {"en": "Build it on your real documents.", "bn": "আপনার আসল কাগজপত্র দিয়ে এআই তৈরি করি।"}, "s2b": {"en": "Test it against your staff's own work.", "bn": "কর্মীদের করা কাজের সাথে মিলিয়ে দেখেন।"}, "s3": {"en": "Go live", "bn": "চালু"}, "s3a": {"en": "Connect it to the tools you already use.", "bn": "আপনার বর্তমান সফটওয়্যারের সাথে যুক্ত করি।"}, "s3b": {"en": "Approve the switch.", "bn": "চালু করার অনুমতি দেন।"}, "s4": {"en": "Handover", "bn": "হস্তান্তর"}, "s4a": {"en": "Train your team in Bangla and stay on call.", "bn": "বাংলায় প্রশিক্ষণ দিই, পাশে থাকি।"}, "s4b": {"en": "Run it, then pick the next task.", "bn": "নিজেরাই চালান, তারপর পরের কাজ বেছে নেন।"}, "fit.h": {"en": "We speak Mushak, LC and Banglish", "bn": "মূসক, এলসি আর বাংলিশ, সবই চিনি"}, "fit.lang": {"en": "Bangla, English, Banglish", "bn": "বাংলা, ইংরেজি, বাংলিশ"}, "fit.lang1": {"en": "Customer types", "bn": "গ্রাহক লেখেন"}, "fit.lang2": {"en": "AI reads", "bn": "এআই পড়ে"}, "fit.lang3": {"en": "Your report says", "bn": "রিপোর্টে যায়"}, "fit.langv2": {"en": "কত দাম ভাই?", "bn": "কত দাম ভাই?"}, "fit.langv3": {"en": "Asking the price", "bn": "দাম জানতে চাইছেন"}, "fit.a": {"en": "Paper too", "bn": "কাগজও চলবে"}, "fit.ap": {"en": "Scans, phone photos and handwritten ledgers.", "bn": "স্ক্যান, ফোনের ছবি, হাতে লেখা খাতা।"}, "fit.b": {"en": "The tools you have", "bn": "আপনার চেনা টুল"}, "fit.bp": {"en": "Excel, Tally, WhatsApp, Messenger.", "bn": "এক্সেল, ট্যালি, হোয়াটসঅ্যাপ, মেসেঞ্জার।"}, "fit.c": {"en": "When the line drops", "bn": "নেট চলে গেলে"}, "fit.cp": {"en": "Work waits in a queue and picks up again.", "bn": "কাজ জমা থাকে, নেট এলে আবার চলে।"}, "faq.h": {"en": "Before you hand over the files", "bn": "ফাইল দেওয়ার আগে যা জানা দরকার"}, "q1": {"en": "Will I have to let staff go?", "bn": "কর্মী ছাঁটাই করতে হবে?"}, "a1": {"en": "No. AI takes the repeating part. Decisions stay with your people.", "bn": "না। বারবার করার অংশটুকু এআই করে, সিদ্ধান্ত থাকে আপনার কর্মীদের হাতে।"}, "q2": {"en": "Where do our documents go?", "bn": "আমাদের কাগজপত্র কোথায় যাবে?"}, "a2": {"en": "Only where you approve. We agree this in writing before work starts.", "bn": "শুধু আপনার অনুমোদিত জায়গায়। কাজ শুরুর আগে এটি লিখিতভাবে ঠিক করা হয়।"}, "q3": {"en": "We still run on paper and Excel. Is that a problem?", "bn": "আমরা এখনো কাগজ আর এক্সেলে চলি। এতে কি সমস্যা হবে?"}, "a3": {"en": "No. That is a good place to start.", "bn": "না। শুরু করার জন্য এটাই ভালো জায়গা।"}, "q4": {"en": "What does it cost?", "bn": "খরচ কত?"}, "a4": {"en": "We quote per task, after the work map.", "bn": "কাজের ম্যাপের পর প্রতিটি কাজের জন্য আলাদা কোটেশন দিই।"}, "c.h": {"en": "Book a work review", "bn": "কাজের পর্যালোচনা বুক করুন"}, "c.p": {"en": "Tell us one task. We show you how it would run on AI.", "bn": "একটি কাজের কথা বলুন। সেটি এআই-তে কীভাবে চলবে, আমরা দেখিয়ে দেব।"}, "c.email": {"en": "Email", "bn": "ইমেইল"}, "c.emailv": {"en": "email to be added", "bn": "ইমেইল যোগ করা হবে"}, "c.office": {"en": "Office", "bn": "অফিস"}, "c.officev": {"en": "address to be added", "bn": "ঠিকানা যোগ করা হবে"}, "f.name": {"en": "Your name", "bn": "আপনার নাম"}, "f.company": {"en": "Company", "bn": "কোম্পানি"}, "f.contact": {"en": "Phone or email", "bn": "ফোন বা ইমেইল"}, "f.industry": {"en": "Industry", "bn": "খাত"}, "f.task": {"en": "Which task eats the most time?", "bn": "কোন কাজে সবচেয়ে বেশি সময় যায়?"}, "f.send": {"en": "Request a review", "bn": "পর্যালোচনার অনুরোধ পাঠান"}, "f.notsent": {"en": "Nothing was sent: this form is not connected yet.", "bn": "কিছু পাঠানো হয়নি: এই ফর্মটি এখনো সংযুক্ত নয়।"}, "f.invalid": {"en": "Add your name, a contact and the task, then send again.", "bn": "নাম, যোগাযোগ ও কাজের বিবরণ লিখে আবার পাঠান।"}, "foot.credit": {"en": "materials, motion and background word changed.", "bn": "ম্যাটেরিয়াল, নড়াচড়া ও পেছনের লেখা বদলানো হয়েছে।"}, "foot.legal": {"en": "AI transformation for companies in Bangladesh, business to business.", "bn": "বাংলাদেশের কোম্পানির জন্য বিটুবি এআই রূপান্তর।"}, "nav.trust": {"en": "Our commitments", "bn": "আমাদের অঙ্গীকার"}, "how.get": {"en": "You receive", "bn": "আপনি পাবেন"}, "s1c": {"en": "A written task map, ranked by effort.", "bn": "শ্রম অনুযায়ী সাজানো লিখিত কাজের ম্যাপ।"}, "s2c": {"en": "A working pilot and its results.", "bn": "চালু পাইলট ও তার ফলাফল।"}, "s3c": {"en": "The live system and its documents.", "bn": "চালু সিস্টেম ও তার ডকুমেন্ট।"}, "s4c": {"en": "Trained staff and a named contact.", "bn": "প্রশিক্ষিত কর্মী ও নির্দিষ্ট যোগাযোগকারী।"}, "t.h": {"en": "In writing, before we start", "bn": "কাজ শুরুর আগে, লিখিতভাবে"}, "t1": {"en": "A signed NDA", "bn": "স্বাক্ষরিত এনডিএ"}, "t1p": {"en": "We sign before we see your first document.", "bn": "প্রথম কাগজ দেখার আগেই আমরা স্বাক্ষর করি।"}, "t2": {"en": "Your data stays yours", "bn": "আপনার তথ্য আপনারই"}, "t2p": {"en": "It is never used to train public AI models.", "bn": "পাবলিক এআই মডেল শেখাতে এটি কখনো ব্যবহার হয় না।"}, "t3": {"en": "Named access", "bn": "নির্দিষ্ট অ্যাক্সেস"}, "t3p": {"en": "Only named people on the project open your files.", "bn": "শুধু প্রকল্পের নির্দিষ্ট লোকেরাই আপনার ফাইল খোলেন।"}, "t4": {"en": "You own the result", "bn": "ফলাফলের মালিক আপনি"}, "t4p": {"en": "Workflows, prompts and documents built for you stay with you.", "bn": "আপনার জন্য তৈরি ওয়ার্কফ্লো, প্রম্পট ও ডকুমেন্ট আপনার কাছেই থাকে।"}, "t5": {"en": "A pilot first", "bn": "আগে পাইলট"}, "t5p": {"en": "You judge one task on real work before going further.", "bn": "এগোনোর আগে আসল কাজে একটি কাজ যাচাই করেন।"}, "t6": {"en": "A person signs", "bn": "স্বাক্ষর মানুষের"}, "t6p": {"en": "Approvals, payments and compliance stay with your staff.", "bn": "অনুমোদন, পেমেন্ট ও কমপ্লায়েন্স আপনার কর্মীদের হাতে থাকে।"}, "q5": {"en": "What if the pilot does not work for us?", "bn": "পাইলট কাজে না লাগলে?"}, "a5": {"en": "You stop there and keep the task map.", "bn": "সেখানেই থামবেন, কাজের ম্যাপটি আপনার কাছে থাকবে।"}, "q6": {"en": "Do we need our own IT team?", "bn": "নিজস্ব আইটি টিম লাগবে?"}, "a6": {"en": "No. One person who knows the work is enough to begin.", "bn": "না। কাজটি জানেন এমন একজন থাকলেই শুরু করা যায়।"}, "f.role": {"en": "Your role", "bn": "আপনার পদ"}};window.RX_BENCH=[{"id": "rmg", "name": {"en": "Garments", "bn": "গার্মেন্টস"}, "source": {"en": "Buyer email", "bn": "বায়ারের ইমেইল"}, "raw": "Hi team, please revise PO [[4471]]. Qty from 12,000 to [[13,500 pcs]]. Ex factory moved up to [[28 Feb]]. Add size [[XXL]]. Need confirmation today.", "fields": [[{"en": "Order", "bn": "অর্ডার"}, "PO 4471"], [{"en": "Quantity", "bn": "পরিমাণ"}, {"en": "13,500 pcs, was 12,000", "bn": "১৩,৫০০ পিস, আগে ১২,০০০"}], [{"en": "Ex factory", "bn": "এক্স ফ্যাক্টরি"}, {"en": "28 Feb", "bn": "২৮ ফেব্রুয়ারি"}], [{"en": "New size", "bn": "নতুন সাইজ"}, "XXL"]], "sign": {"en": "The merchandiser checks the new date with planning.", "bn": "নতুন তারিখ প্ল্যানিংয়ের সাথে মিলিয়ে নেন মার্চেন্ডাইজার।"}}, {"id": "bank", "name": {"en": "Banking", "bn": "ব্যাংকিং"}, "source": {"en": "Scanned loan form", "bn": "স্ক্যান করা ঋণের ফরম"}, "raw": "আবেদনকারী: [[করিম উদ্দিন]]। ব্যবসা: [[মুদি দোকান, রংপুর]]। ঋণের পরিমাণ: [[৳ ৫,০০,০০০]]। জামিনদারের স্বাক্ষর: [[নেই]]।", "fields": [[{"en": "Applicant", "bn": "আবেদনকারী"}, {"en": "Karim Uddin", "bn": "করিম উদ্দিন"}], [{"en": "Business", "bn": "ব্যবসা"}, {"en": "Grocery shop, Rangpur", "bn": "মুদি দোকান, রংপুর"}], [{"en": "Amount", "bn": "পরিমাণ"}, {"en": "৳ 500,000", "bn": "৳ ৫,০০,০০০"}], [{"en": "Missing", "bn": "বাকি আছে"}, {"en": "Guarantor signature", "bn": "জামিনদারের স্বাক্ষর"}]], "sign": {"en": "The credit officer reviews the file before any approval.", "bn": "অনুমোদনের আগে ফাইলটি দেখেন ক্রেডিট অফিসার।"}}, {"id": "pharma", "name": {"en": "Pharma", "bn": "ফার্মা"}, "source": {"en": "Batch record", "bn": "ব্যাচ রেকর্ড"}, "raw": "Page 14. [[Granulation]] end weight [[49.2 kg]]. Limit [[49.5 to 50.5 kg]]. Operator signed. QA initial [[blank]].", "fields": [[{"en": "Step", "bn": "ধাপ"}, {"en": "Granulation", "bn": "গ্র্যানুলেশন"}], [{"en": "Reading", "bn": "রিডিং"}, "49.2 kg"], [{"en": "Result", "bn": "ফলাফল"}, {"en": "Below the 49.5 kg limit", "bn": "৪৯.৫ কেজি সীমার নিচে"}], [{"en": "Missing", "bn": "বাকি আছে"}, {"en": "QA initial", "bn": "কিউএ ইনিশিয়াল"}]], "sign": {"en": "QA opens the deviation and decides on the batch.", "bn": "ডেভিয়েশন খোলেন এবং ব্যাচের সিদ্ধান্ত নেন কিউএ।"}}, {"id": "trade", "name": {"en": "Import and export", "bn": "আমদানি-রপ্তানি"}, "source": {"en": "LC and shipping papers", "bn": "এলসি ও শিপিং কাগজ"}, "raw": "LC beneficiary: [[Padma Knit Ltd]]. Invoice: [[Padma Knits Limited]]. Latest shipment [[10 Apr]]. Bill of lading dated [[12 Apr]].", "fields": [[{"en": "Name", "bn": "নাম"}, {"en": "Does not match the LC", "bn": "এলসির সাথে মিলছে না"}], [{"en": "Shipment", "bn": "শিপমেন্ট"}, {"en": "2 days past the limit", "bn": "সীমার ২ দিন পরে"}], [{"en": "Risk", "bn": "ঝুঁকি"}, {"en": "Bank discrepancy", "bn": "ব্যাংকে ডিসক্রিপেন্সি"}], [{"en": "Next", "bn": "পরের কাজ"}, {"en": "Request an amendment", "bn": "সংশোধনের অনুরোধ"}]], "sign": {"en": "The commercial officer sends the amendment.", "bn": "সংশোধনের অনুরোধ পাঠান কমার্শিয়াল অফিসার।"}}, {"id": "shop", "name": {"en": "Online shop", "bn": "অনলাইন শপ"}, "source": {"en": "Messenger order", "bn": "মেসেঞ্জারের অর্ডার"}, "raw": "ভাইয়া [[লাল পাঞ্জাবি]] [[XL]] সাইজ [[২টা]] লাগবে। [[মিরপুর ১০]] এ পাঠান। [[ক্যাশ অন ডেলিভারি]]।", "fields": [[{"en": "Item", "bn": "পণ্য"}, {"en": "Red panjabi, XL", "bn": "লাল পাঞ্জাবি, XL"}], [{"en": "Quantity", "bn": "পরিমাণ"}, {"en": "2", "bn": "২"}], [{"en": "Delivery", "bn": "ডেলিভারি"}, {"en": "Mirpur 10", "bn": "মিরপুর ১০"}], [{"en": "Payment", "bn": "পেমেন্ট"}, {"en": "Cash on delivery", "bn": "ক্যাশ অন ডেলিভারি"}]], "sign": {"en": "Your seller checks stock before it ships.", "bn": "পাঠানোর আগে স্টক দেখে নেন আপনার বিক্রেতা।"}}, {"id": "hr", "name": {"en": "Head office", "bn": "হেড অফিস"}, "source": {"en": "Attendance sheet", "bn": "হাজিরা শিট"}, "raw": "Line 6. [[Rahima]] in 8:02, out [[21:10]]. [[Salma]] in 8:00, out 17:00. [[Jamal]] in 8:05, out [[not punched]].", "fields": [[{"en": "Rahima", "bn": "রহিমা"}, {"en": "Overtime 4 h 10 m", "bn": "ওভারটাইম ৪ ঘ. ১০ মি."}], [{"en": "Salma", "bn": "সালমা"}, {"en": "No overtime", "bn": "ওভারটাইম নেই"}], [{"en": "Jamal", "bn": "জামাল"}, {"en": "Missing punch", "bn": "পাঞ্চ নেই"}], [{"en": "Goes to", "bn": "যাবে"}, {"en": "Payroll sheet", "bn": "পে-রোল শিট"}]], "sign": {"en": "HR corrects the missing punch.", "bn": "পাঞ্চের ভুল ঠিক করেন এইচআর।"}}];</script>
+<script>window.RX_I18N={"meta.title": {"en": "Rupantor AX", "bn": "রূপান্তর AX"}, "brand": {"en": "Rupantor", "bn": "রূপান্তর"}, "skip": {"en": "Skip to content", "bn": "মূল অংশে যান"}, "nav.bench": {"en": "See a task", "bn": "কাজ দেখুন"}, "nav.takes": {"en": "What AI takes", "bn": "এআই কী করবে"}, "nav.how": {"en": "How we work", "bn": "কাজের ধারা"}, "nav.faq": {"en": "Questions", "bn": "প্রশ্ন"}, "nav.talk": {"en": "Talk to us", "bn": "কথা বলুন"}, "hero.h": {"en": "AI transformation for your whole company.", "bn": "আপনার পুরো কোম্পানির জন্য এআই রূপান্তর।"}, "hero.p": {"en": "We map your departments, automate the repeating work and train your team.", "bn": "আমরা বিভাগ ধরে কাজ ম্যাপ করি, বারবার করার কাজ স্বয়ংক্রিয় করি, আর আপনার টিমকে শিখিয়ে দিই।"}, "hero.a1": {"en": "Book a work review", "bn": "কাজের পর্যালোচনা বুক করুন"}, "hero.a2": {"en": "Watch it work", "bn": "কীভাবে হয় দেখুন"}, "pause": {"en": "Pause", "bn": "থামান"}, "play": {"en": "Play", "bn": "চালান"}, "bench.h": {"en": "Watch one task change", "bn": "একটি কাজ কীভাবে বদলে যায়, দেখুন"}, "bench.p": {"en": "Paperwork you know from Bangladeshi offices. Every name and number here is a sample.", "bn": "বাংলাদেশের অফিসের চেনা কাগজপত্র। এখানকার সব নাম ও সংখ্যা নমুনা।"}, "bench.in": {"en": "Comes in", "bn": "যা আসে"}, "bench.out": {"en": "Comes out", "bn": "যা পাবেন"}, "bench.sign": {"en": "A person decides", "bn": "সিদ্ধান্ত মানুষের"}, "bench.again": {"en": "Run again", "bn": "আবার চালান"}, "takes.h": {"en": "What AI takes, what you keep", "bn": "এআই কী নেবে, আপনার হাতে কী থাকবে"}, "takes.c1": {"en": "Department", "bn": "বিভাগ"}, "takes.c2": {"en": "AI takes", "bn": "এআই করবে"}, "takes.c3": {"en": "Your people keep", "bn": "আপনার লোকদের হাতে"}, "d1": {"en": "Finance", "bn": "হিসাব"}, "d1a": {"en": "Invoice matching, bank and bKash reconciliation, Mushak drafts", "bn": "ইনভয়েস মেলানো, ব্যাংক ও বিকাশের হিসাব মেলানো, মূসক ফরমের খসড়া"}, "d1b": {"en": "Payment approval", "bn": "পেমেন্ট অনুমোদন"}, "d2": {"en": "HR", "bn": "এইচআর"}, "d2a": {"en": "Attendance, overtime, CV screening, offer letters", "bn": "হাজিরা, ওভারটাইম, সিভি বাছাই, অফার লেটার"}, "d2b": {"en": "Hiring decisions", "bn": "নিয়োগের সিদ্ধান্ত"}, "d3": {"en": "Sales and support", "bn": "বিক্রয় ও সাপোর্ট"}, "d3a": {"en": "Bangla replies on Messenger and WhatsApp, quotations, order entry", "bn": "মেসেঞ্জার ও হোয়াটসঅ্যাপে বাংলায় উত্তর, কোটেশন, অর্ডার এন্ট্রি"}, "d3b": {"en": "Discounts and complaints", "bn": "ছাড় ও অভিযোগের সমাধান"}, "d4": {"en": "Operations", "bn": "অপারেশন"}, "d4a": {"en": "Daily production reports, stock alerts, purchase requests", "bn": "দৈনিক উৎপাদন রিপোর্ট, স্টক সতর্কতা, ক্রয়ের অনুরোধ"}, "d4b": {"en": "Plan changes", "bn": "পরিকল্পনা বদল"}, "d5": {"en": "Compliance", "bn": "কমপ্লায়েন্স"}, "d5a": {"en": "Audit files, SOP versions, licence renewal reminders", "bn": "অডিট ফাইল, এসওপি ভার্সন, লাইসেন্স নবায়নের রিমাইন্ডার"}, "d5b": {"en": "Final signature", "bn": "চূড়ান্ত স্বাক্ষর"}, "how.h": {"en": "Four stages, each one signed", "bn": "চারটি ধাপ, প্রতিটিতে আপনার সম্মতি"}, "how.we": {"en": "We", "bn": "আমরা"}, "how.you": {"en": "You", "bn": "আপনি"}, "s1": {"en": "Work map", "bn": "কাজের ম্যাপ"}, "s1a": {"en": "Sit with your team and list every repeating task.", "bn": "আপনার টিমের সাথে বসে বারবার করতে হয় এমন সব কাজের তালিকা করি।"}, "s1b": {"en": "Pick the task that hurts most.", "bn": "সবচেয়ে ভোগান্তির কাজটি বেছে নেন।"}, "s2": {"en": "Pilot", "bn": "পাইলট"}, "s2a": {"en": "Build it on your real documents.", "bn": "আপনার আসল কাগজপত্র দিয়ে এআই তৈরি করি।"}, "s2b": {"en": "Test it against your staff's own work.", "bn": "কর্মীদের করা কাজের সাথে মিলিয়ে দেখেন।"}, "s3": {"en": "Go live", "bn": "চালু"}, "s3a": {"en": "Connect it to the tools you already use.", "bn": "আপনার বর্তমান সফটওয়্যারের সাথে যুক্ত করি।"}, "s3b": {"en": "Approve the switch.", "bn": "চালু করার অনুমতি দেন।"}, "s4": {"en": "Handover", "bn": "হস্তান্তর"}, "s4a": {"en": "Train your team in Bangla and stay on call.", "bn": "বাংলায় প্রশিক্ষণ দিই, পাশে থাকি।"}, "s4b": {"en": "Run it, then pick the next task.", "bn": "নিজেরাই চালান, তারপর পরের কাজ বেছে নেন।"}, "fit.h": {"en": "We speak Mushak, LC and Banglish", "bn": "মূসক, এলসি আর বাংলিশ, সবই চিনি"}, "fit.lang": {"en": "Bangla, English, Banglish", "bn": "বাংলা, ইংরেজি, বাংলিশ"}, "fit.lang1": {"en": "Customer types", "bn": "গ্রাহক লেখেন"}, "fit.lang2": {"en": "AI reads", "bn": "এআই পড়ে"}, "fit.lang3": {"en": "Your report says", "bn": "রিপোর্টে যায়"}, "fit.langv2": {"en": "কত দাম ভাই?", "bn": "কত দাম ভাই?"}, "fit.langv3": {"en": "Asking the price", "bn": "দাম জানতে চাইছেন"}, "fit.a": {"en": "Paper too", "bn": "কাগজও চলবে"}, "fit.ap": {"en": "Scans, phone photos and handwritten ledgers.", "bn": "স্ক্যান, ফোনের ছবি, হাতে লেখা খাতা।"}, "fit.b": {"en": "The tools you have", "bn": "আপনার চেনা টুল"}, "fit.bp": {"en": "Excel, Tally, WhatsApp, Messenger.", "bn": "এক্সেল, ট্যালি, হোয়াটসঅ্যাপ, মেসেঞ্জার।"}, "fit.c": {"en": "When the line drops", "bn": "নেট চলে গেলে"}, "fit.cp": {"en": "Work waits in a queue and picks up again.", "bn": "কাজ জমা থাকে, নেট এলে আবার চলে।"}, "faq.h": {"en": "Before you hand over the files", "bn": "ফাইল দেওয়ার আগে যা জানা দরকার"}, "q1": {"en": "Will I have to let staff go?", "bn": "কর্মী ছাঁটাই করতে হবে?"}, "a1": {"en": "No. AI takes the repeating part. Decisions stay with your people.", "bn": "না। বারবার করার অংশটুকু এআই করে, সিদ্ধান্ত থাকে আপনার কর্মীদের হাতে।"}, "q2": {"en": "Where do our documents go?", "bn": "আমাদের কাগজপত্র কোথায় যাবে?"}, "a2": {"en": "Only where you approve. We agree this in writing before work starts.", "bn": "শুধু আপনার অনুমোদিত জায়গায়। কাজ শুরুর আগে এটি লিখিতভাবে ঠিক করা হয়।"}, "q3": {"en": "We still run on paper and Excel. Is that a problem?", "bn": "আমরা এখনো কাগজ আর এক্সেলে চলি। এতে কি সমস্যা হবে?"}, "a3": {"en": "No. That is a good place to start.", "bn": "না। শুরু করার জন্য এটাই ভালো জায়গা।"}, "q4": {"en": "What does it cost?", "bn": "খরচ কত?"}, "a4": {"en": "We quote per task, after the work map.", "bn": "কাজের ম্যাপের পর প্রতিটি কাজের জন্য আলাদা কোটেশন দিই।"}, "c.h": {"en": "Book a work review", "bn": "কাজের পর্যালোচনা বুক করুন"}, "c.p": {"en": "Tell us one task. We show you how it would run on AI.", "bn": "একটি কাজের কথা বলুন। সেটি এআই-তে কীভাবে চলবে, আমরা দেখিয়ে দেব।"}, "c.email": {"en": "Email", "bn": "ইমেইল"}, "c.emailv": {"en": "email to be added", "bn": "ইমেইল যোগ করা হবে"}, "c.office": {"en": "Office", "bn": "অফিস"}, "c.officev": {"en": "address to be added", "bn": "ঠিকানা যোগ করা হবে"}, "f.name": {"en": "Your name", "bn": "আপনার নাম"}, "f.company": {"en": "Company", "bn": "কোম্পানি"}, "f.contact": {"en": "Phone or email", "bn": "ফোন বা ইমেইল"}, "f.industry": {"en": "Industry", "bn": "খাত"}, "f.task": {"en": "Which task eats the most time?", "bn": "কোন কাজে সবচেয়ে বেশি সময় যায়?"}, "f.send": {"en": "Request a review", "bn": "অনুরোধ পাঠান"}, "f.notsent": {"en": "Nothing was sent: this form is not connected yet.", "bn": "কিছু পাঠানো হয়নি: এই ফর্মটি এখনো সংযুক্ত নয়।"}, "f.invalid": {"en": "Add your name, a contact and the task, then send again.", "bn": "নাম, যোগাযোগ ও কাজের বিবরণ লিখে আবার পাঠান।"}, "foot.credit": {"en": "materials, motion and background word changed.", "bn": "ম্যাটেরিয়াল, নড়াচড়া ও পেছনের লেখা বদলানো হয়েছে।"}, "foot.legal": {"en": "AI transformation for companies in Bangladesh, business to business.", "bn": "বাংলাদেশের কোম্পানির জন্য বিটুবি এআই রূপান্তর।"}, "nav.trust": {"en": "Our commitments", "bn": "আমাদের অঙ্গীকার"}, "how.get": {"en": "You receive", "bn": "আপনি পাবেন"}, "s1c": {"en": "A written task map, ranked by effort.", "bn": "শ্রম অনুযায়ী সাজানো লিখিত কাজের ম্যাপ।"}, "s2c": {"en": "A working pilot and its results.", "bn": "চালু পাইলট ও তার ফলাফল।"}, "s3c": {"en": "The live system and its documents.", "bn": "চালু সিস্টেম ও তার ডকুমেন্ট।"}, "s4c": {"en": "Trained staff and a named contact.", "bn": "প্রশিক্ষিত কর্মী ও নির্দিষ্ট যোগাযোগকারী।"}, "t.h": {"en": "In writing, before we start", "bn": "কাজ শুরুর আগে, লিখিতভাবে"}, "t1": {"en": "A signed NDA", "bn": "স্বাক্ষরিত এনডিএ"}, "t1p": {"en": "We sign before we see your first document.", "bn": "প্রথম কাগজ দেখার আগেই আমরা স্বাক্ষর করি।"}, "t2": {"en": "Your data stays yours", "bn": "আপনার তথ্য আপনারই"}, "t2p": {"en": "It is never used to train public AI models.", "bn": "পাবলিক এআই মডেল শেখাতে এটি কখনো ব্যবহার হয় না।"}, "t3": {"en": "Named access", "bn": "নির্দিষ্ট অ্যাক্সেস"}, "t3p": {"en": "Only named people on the project open your files.", "bn": "শুধু প্রকল্পের নির্দিষ্ট লোকেরাই আপনার ফাইল খোলেন।"}, "t4": {"en": "You own the result", "bn": "ফলাফলের মালিক আপনি"}, "t4p": {"en": "Workflows, prompts and documents built for you stay with you.", "bn": "আপনার জন্য তৈরি ওয়ার্কফ্লো, প্রম্পট ও ডকুমেন্ট আপনার কাছেই থাকে।"}, "t5": {"en": "A pilot first", "bn": "আগে পাইলট"}, "t5p": {"en": "You judge one task on real work before going further.", "bn": "এগোনোর আগে আসল কাজে একটি কাজ যাচাই করেন।"}, "t6": {"en": "A person signs", "bn": "স্বাক্ষর মানুষের"}, "t6p": {"en": "Approvals, payments and compliance stay with your staff.", "bn": "অনুমোদন, পেমেন্ট ও কমপ্লায়েন্স আপনার কর্মীদের হাতে থাকে।"}, "q5": {"en": "What if the pilot does not work for us?", "bn": "পাইলট কাজে না লাগলে?"}, "a5": {"en": "You stop there and keep the task map.", "bn": "সেখানেই থামবেন, কাজের ম্যাপটি আপনার কাছে থাকবে।"}, "q6": {"en": "Do we need our own IT team?", "bn": "নিজস্ব আইটি টিম লাগবে?"}, "a6": {"en": "No. One person who knows the work is enough to begin.", "bn": "না। কাজটি জানেন এমন একজন থাকলেই শুরু করা যায়।"}, "f.role": {"en": "Your role", "bn": "আপনার পদ"}, "ops1": {"en": "Finance", "bn": "হিসাব"}, "ops1t": {"en": "Invoice matching", "bn": "ইনভয়েস মেলানো"}, "ops2": {"en": "HR", "bn": "এইচআর"}, "ops2t": {"en": "Overtime check", "bn": "ওভারটাইম যাচাই"}, "ops3": {"en": "Operations", "bn": "অপারেশন"}, "ops3t": {"en": "Daily report", "bn": "দৈনিক রিপোর্ট"}, "ops.run": {"en": "AI working", "bn": "এআই করছে"}, "ops.wait": {"en": "Needs approval", "bn": "অনুমোদন দরকার"}, "ops.done": {"en": "Done", "bn": "সম্পন্ন"}, "takes.before": {"en": "Your team today", "bn": "আজ আপনার টিম"}, "takes.after": {"en": "After AX", "bn": "এএক্স-এর পরে"}, "b1": {"en": "Copying numbers between files", "bn": "ফাইল থেকে ফাইলে সংখ্যা কপি"}, "b2": {"en": "Chasing papers and signatures", "bn": "কাগজ আর স্বাক্ষরের পেছনে ছোটা"}, "b3": {"en": "Typing the same report daily", "bn": "প্রতিদিন একই রিপোর্ট টাইপ"}, "a1i": {"en": "Reviewing what AI flags", "bn": "এআই যা ধরেছে তা যাচাই"}, "a2i": {"en": "Approving with full context", "bn": "সব তথ্য দেখে অনুমোদন"}, "a3i": {"en": "Time for customers and planning", "bn": "গ্রাহক ও পরিকল্পনার জন্য সময়"}};window.RX_BENCH=[{"id": "rmg", "name": {"en": "Garments", "bn": "গার্মেন্টস"}, "source": {"en": "Buyer email", "bn": "বায়ারের ইমেইল"}, "raw": "Hi team, please revise PO [[4471]]. Qty from 12,000 to [[13,500 pcs]]. Ex factory moved up to [[28 Feb]]. Add size [[XXL]]. Need confirmation today.", "fields": [[{"en": "Order", "bn": "অর্ডার"}, "PO 4471"], [{"en": "Quantity", "bn": "পরিমাণ"}, {"en": "13,500 pcs, was 12,000", "bn": "১৩,৫০০ পিস, আগে ১২,০০০"}], [{"en": "Ex factory", "bn": "এক্স ফ্যাক্টরি"}, {"en": "28 Feb", "bn": "২৮ ফেব্রুয়ারি"}], [{"en": "New size", "bn": "নতুন সাইজ"}, "XXL"]], "sign": {"en": "The merchandiser checks the new date with planning.", "bn": "নতুন তারিখ প্ল্যানিংয়ের সাথে মিলিয়ে নেন মার্চেন্ডাইজার।"}}, {"id": "bank", "name": {"en": "Banking", "bn": "ব্যাংকিং"}, "source": {"en": "Scanned loan form", "bn": "স্ক্যান করা ঋণের ফরম"}, "raw": "আবেদনকারী: [[করিম উদ্দিন]]। ব্যবসা: [[মুদি দোকান, রংপুর]]। ঋণের পরিমাণ: [[৳ ৫,০০,০০০]]। জামিনদারের স্বাক্ষর: [[নেই]]।", "fields": [[{"en": "Applicant", "bn": "আবেদনকারী"}, {"en": "Karim Uddin", "bn": "করিম উদ্দিন"}], [{"en": "Business", "bn": "ব্যবসা"}, {"en": "Grocery shop, Rangpur", "bn": "মুদি দোকান, রংপুর"}], [{"en": "Amount", "bn": "পরিমাণ"}, {"en": "৳ 500,000", "bn": "৳ ৫,০০,০০০"}], [{"en": "Missing", "bn": "বাকি আছে"}, {"en": "Guarantor signature", "bn": "জামিনদারের স্বাক্ষর"}]], "sign": {"en": "The credit officer reviews the file before any approval.", "bn": "অনুমোদনের আগে ফাইলটি দেখেন ক্রেডিট অফিসার।"}}, {"id": "pharma", "name": {"en": "Pharma", "bn": "ফার্মা"}, "source": {"en": "Batch record", "bn": "ব্যাচ রেকর্ড"}, "raw": "Page 14. [[Granulation]] end weight [[49.2 kg]]. Limit [[49.5 to 50.5 kg]]. Operator signed. QA initial [[blank]].", "fields": [[{"en": "Step", "bn": "ধাপ"}, {"en": "Granulation", "bn": "গ্র্যানুলেশন"}], [{"en": "Reading", "bn": "রিডিং"}, "49.2 kg"], [{"en": "Result", "bn": "ফলাফল"}, {"en": "Below the 49.5 kg limit", "bn": "৪৯.৫ কেজি সীমার নিচে"}], [{"en": "Missing", "bn": "বাকি আছে"}, {"en": "QA initial", "bn": "কিউএ ইনিশিয়াল"}]], "sign": {"en": "QA opens the deviation and decides on the batch.", "bn": "ডেভিয়েশন খোলেন এবং ব্যাচের সিদ্ধান্ত নেন কিউএ।"}}, {"id": "trade", "name": {"en": "Import and export", "bn": "আমদানি-রপ্তানি"}, "source": {"en": "LC and shipping papers", "bn": "এলসি ও শিপিং কাগজ"}, "raw": "LC beneficiary: [[Padma Knit Ltd]]. Invoice: [[Padma Knits Limited]]. Latest shipment [[10 Apr]]. Bill of lading dated [[12 Apr]].", "fields": [[{"en": "Name", "bn": "নাম"}, {"en": "Does not match the LC", "bn": "এলসির সাথে মিলছে না"}], [{"en": "Shipment", "bn": "শিপমেন্ট"}, {"en": "2 days past the limit", "bn": "সীমার ২ দিন পরে"}], [{"en": "Risk", "bn": "ঝুঁকি"}, {"en": "Bank discrepancy", "bn": "ব্যাংকে ডিসক্রিপেন্সি"}], [{"en": "Next", "bn": "পরের কাজ"}, {"en": "Request an amendment", "bn": "সংশোধনের অনুরোধ"}]], "sign": {"en": "The commercial officer sends the amendment.", "bn": "সংশোধনের অনুরোধ পাঠান কমার্শিয়াল অফিসার।"}}, {"id": "shop", "name": {"en": "Online shop", "bn": "অনলাইন শপ"}, "source": {"en": "Messenger order", "bn": "মেসেঞ্জারের অর্ডার"}, "raw": "ভাইয়া [[লাল পাঞ্জাবি]] [[XL]] সাইজ [[২টা]] লাগবে। [[মিরপুর ১০]] এ পাঠান। [[ক্যাশ অন ডেলিভারি]]।", "fields": [[{"en": "Item", "bn": "পণ্য"}, {"en": "Red panjabi, XL", "bn": "লাল পাঞ্জাবি, XL"}], [{"en": "Quantity", "bn": "পরিমাণ"}, {"en": "2", "bn": "২"}], [{"en": "Delivery", "bn": "ডেলিভারি"}, {"en": "Mirpur 10", "bn": "মিরপুর ১০"}], [{"en": "Payment", "bn": "পেমেন্ট"}, {"en": "Cash on delivery", "bn": "ক্যাশ অন ডেলিভারি"}]], "sign": {"en": "Your seller checks stock before it ships.", "bn": "পাঠানোর আগে স্টক দেখে নেন আপনার বিক্রেতা।"}}, {"id": "hr", "name": {"en": "Head office", "bn": "হেড অফিস"}, "source": {"en": "Attendance sheet", "bn": "হাজিরা শিট"}, "raw": "Line 6. [[Rahima]] in 8:02, out [[21:10]]. [[Salma]] in 8:00, out 17:00. [[Jamal]] in 8:05, out [[not punched]].", "fields": [[{"en": "Rahima", "bn": "রহিমা"}, {"en": "Overtime 4 h 10 m", "bn": "ওভারটাইম ৪ ঘ. ১০ মি."}], [{"en": "Salma", "bn": "সালমা"}, {"en": "No overtime", "bn": "ওভারটাইম নেই"}], [{"en": "Jamal", "bn": "জামাল"}, {"en": "Missing punch", "bn": "পাঞ্চ নেই"}], [{"en": "Goes to", "bn": "যাবে"}, {"en": "Payroll sheet", "bn": "পে-রোল শিট"}]], "sign": {"en": "HR corrects the missing punch.", "bn": "পাঞ্চের ভুল ঠিক করেন এইচআর।"}}];</script>
 <script>
 (function () {
   'use strict';
@@ -665,9 +681,24 @@ html[data-lang="bn"] .foot__mark { letter-spacing: 0; line-height: 1.25; }
     }).catch(function (e) { console.warn('3D model unavailable', e); });
   }
 
+  /* the hero's sample work cards: each moves through its states in turn */
+  var OPS_FLOW = ['ops.run', 'ops.wait', 'ops.done'];
+  function tickOps() {
+    if (held) return;
+    var cards = document.querySelectorAll('[data-ops]');
+    cards.forEach(function (el, i) {
+      var step = (Math.floor(Date.now() / 2400) + i) % OPS_FLOW.length;
+      if (el.dataset.t === OPS_FLOW[step]) return;
+      el.dataset.t = OPS_FLOW[step];
+      el.textContent = t(OPS_FLOW[step]);
+    });
+  }
+
   applyLang(readLang());
   root.classList.add('js');
   initScene();
+  tickOps();
+  if (!reduced) setInterval(tickOps, 800);
 })();
 </script>
 </html>
